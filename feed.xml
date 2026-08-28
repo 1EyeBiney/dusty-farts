@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:podcast="https://podcastindex.org/namespace/1.0"
+     xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dusty Farts</title>
+    <link>https://1eyebiney.github.io/dusty-farts/</link>
+    <atom:link href="https://1eyebiney.github.io/dusty-farts/feed.xml" rel="self" type="application/rss+xml"/>
+    <language>en-us</language>
+    <description>Two old friends, one booth, and enough coffee to fuel a small-town power grid. Dusty Farts is an immersive comedy podcast that blends Americana warmth with absurd banter, diner-grade philosophy, and a touch of the surreal.</description>
+    <lastBuildDate>Thu, 01 Jan 2026 12:00:00 -0500</lastBuildDate>
+    <itunes:author>Brian Clark</itunes:author>
+    <itunes:owner>
+      <itunes:name>Brian Clark</itunes:name>
+      <itunes:email>1eyebiney@gmail.com</itunes:email>
+    </itunes:owner>
+    <itunes:image href="https://1eyebiney.github.io/dusty-farts/images/logo.jpg"/>
+    <image>
+      <url>https://1eyebiney.github.io/dusty-farts/images/logo.jpg</url>
+      <title>Dusty Farts</title>
+      <link>https://1eyebiney.github.io/dusty-farts/</link>
+    </image>
+    <itunes:category text="Fiction">
+      <itunes:category text="Comedy Fiction"/>
+    </itunes:category>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:type>serial</itunes:type>
+    <item>
+      <title>Episode 17: All Power to the Ball</title>
+      <link>https://1eyebiney.github.io/dusty-farts/episodes/df17-all-power-to-the-ball.html</link>
+      <guid isPermaLink="true">https://1eyebiney.github.io/dusty-farts/episodes/df17-all-power-to-the-ball.html</guid>
+      <pubDate>Thu, 01 Jan 2026 12:00:00 -0500</pubDate>
+      <description>Maple Grove unplugs itself fridge by fridge in pursuit of one clean New Year's countdown for the Ball.</description>
+      <enclosure url="https://1eyebiney.github.io/dusty-farts/audio/df17.mp3" length="22870258" type="audio/mpeg"/>
+      <itunes:title>Episode 17: All Power to the Ball</itunes:title>
+      <itunes:summary>Maple Grove unplugs itself fridge by fridge in pursuit of one clean New Year's countdown for the Ball.</itunes:summary>
+      <itunes:duration>1429</itunes:duration>
+      <itunes:episode>17</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://1eyebiney.github.io/dusty-farts/images/df17.jpg"/>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:chapters url="https://1eyebiney.github.io/dusty-farts/data/chapters/df17.json" type="application/json+chapters"/>
+    </item>
+    <item>
+      <title>Episode 16: Murder in the Park</title>
+      <link>https://1eyebiney.github.io/dusty-farts/episodes/df16-murder-in-the-park.html</link>
+      <guid isPermaLink="true">https://1eyebiney.github.io/dusty-farts/episodes/df16-murder-in-the-park.html</guid>
+      <pubDate>Wed, 24 Dec 2025 12:00:00 -0500</pubDate>
+      <description>Clue-dini returns for his toughest case yet: a dead squirrel, on the table, in the booth.</description>
+      <enclosure url="https://1eyebiney.github.io/dusty-farts/audio/df16.mp3" length="28865556" type="audio/mpeg"/>
+      <itunes:title>Episode 16: Murder in the Park</itunes:title>
+      <itunes:summary>Clue-dini returns for his toughest case yet: a dead squirrel, on the table, in the booth.</itunes:summary>
+      <itunes:duration>1804</itunes:duration>
+      <itunes:episode>16</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://1eyebiney.github.io/dusty-farts/images/df16.jpg"/>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:chapters url="https://1eyebiney.github.io/dusty-farts/data/chapters/df16.json" type="application/json+chapters"/>
+    </item>
+    <item>
+      <title>Episode 14: Drip, Drip, Horray!</title>
+      <link>https://1eyebiney.github.io/dusty-farts/episodes/df14-drip-drip-horray.html</link>
+      <guid isPermaLink="true">https://1eyebiney.github.io/dusty-farts/episodes/df14-drip-drip-horray.html</guid>
+      <pubDate>Fri, 21 Nov 2025 12:00:00 -0500</pubDate>
+      <description>John unlocks a self-diagnosed detective talent he calls Clue-dini, and the blood bus never fully recovers.</description>
+      <enclosure url="https://1eyebiney.github.io/dusty-farts/audio/df14.mp3" length="17181831" type="audio/mpeg"/>
+      <itunes:title>Episode 14: Drip, Drip, Horray!</itunes:title>
+      <itunes:summary>John unlocks a self-diagnosed detective talent he calls Clue-dini, and the blood bus never fully recovers.</itunes:summary>
+      <itunes:duration>1074</itunes:duration>
+      <itunes:episode>14</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://1eyebiney.github.io/dusty-farts/images/df14.jpg"/>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:chapters url="https://1eyebiney.github.io/dusty-farts/data/chapters/df14.json" type="application/json+chapters"/>
+    </item>
+    <item>
+      <title>Episode 12: Booth or Treat - The Maple Grove Spooktacular Special (Parts 12 and 13)</title>
+      <link>https://1eyebiney.github.io/dusty-farts/episodes/df12-13-booth-or-treat.html</link>
+      <guid isPermaLink="true">https://1eyebiney.github.io/dusty-farts/episodes/df12-13-booth-or-treat.html</guid>
+      <pubDate>Fri, 31 Oct 2025 12:00:00 -0500</pubDate>
+      <description>The boys build the Booth of Doom out of a borrowed hearse and two discount coffins for Maple Grove's Trunk or Treat contest.</description>
+      <enclosure url="https://1eyebiney.github.io/dusty-farts/audio/df12-13.mp3" length="30755645" type="audio/mpeg"/>
+      <itunes:title>Episode 12: Booth or Treat - The Maple Grove Spooktacular Special (Parts 12 and 13)</itunes:title>
+      <itunes:summary>The boys build the Booth of Doom out of a borrowed hearse and two discount coffins for Maple Grove's Trunk or Treat contest.</itunes:summary>
+      <itunes:duration>1922</itunes:duration>
+      <itunes:episode>12</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://1eyebiney.github.io/dusty-farts/images/df12-13.jpg"/>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:chapters url="https://1eyebiney.github.io/dusty-farts/data/chapters/df12-13.json" type="application/json+chapters"/>
+    </item>
+    <item>
+      <title>Episode 11: Condiment Clash</title>
+      <link>https://1eyebiney.github.io/dusty-farts/episodes/df11-condiment-clash.html</link>
+      <guid isPermaLink="true">https://1eyebiney.github.io/dusty-farts/episodes/df11-condiment-clash.html</guid>
+      <pubDate>Mon, 27 Oct 2025 12:00:00 -0500</pubDate>
+      <description>A missed blood-bus appointment turns hangry, and one wrong squirt of ketchup ignites a full tabletop condiment war.</description>
+      <enclosure url="https://1eyebiney.github.io/dusty-farts/audio/df11.mp3" length="20993202" type="audio/mpeg"/>
+      <itunes:title>Episode 11: Condiment Clash</itunes:title>
+      <itunes:summary>A missed blood-bus appointment turns hangry, and one wrong squirt of ketchup ignites a full tabletop condiment war.</itunes:summary>
+      <itunes:duration>1312</itunes:duration>
+      <itunes:episode>11</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://1eyebiney.github.io/dusty-farts/images/df11.jpg"/>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:chapters url="https://1eyebiney.github.io/dusty-farts/data/chapters/df11.json" type="application/json+chapters"/>
+    </item>
+    <item>
+      <title>Episode 10: Jingle Jamboree</title>
+      <link>https://1eyebiney.github.io/dusty-farts/episodes/df10-jingle-jamboree.html</link>
+      <guid isPermaLink="true">https://1eyebiney.github.io/dusty-farts/episodes/df10-jingle-jamboree.html</guid>
+      <pubDate>Mon, 20 Oct 2025 12:00:00 -0500</pubDate>
+      <description>Aria hijacks the show for a jingle retrospective — every Dusty Farts earworm ever recorded, replayed, and lightly regretted.</description>
+      <enclosure url="https://1eyebiney.github.io/dusty-farts/audio/df10.mp3" length="28097516" type="audio/mpeg"/>
+      <itunes:title>Episode 10: Jingle Jamboree</itunes:title>
+      <itunes:summary>Aria hijacks the show for a jingle retrospective — every Dusty Farts earworm ever recorded, replayed, and lightly regretted.</itunes:summary>
+      <itunes:duration>1756</itunes:duration>
+      <itunes:episode>10</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://1eyebiney.github.io/dusty-farts/images/df10.jpg"/>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:chapters url="https://1eyebiney.github.io/dusty-farts/data/chapters/df10.json" type="application/json+chapters"/>
+    </item>
+    <item>
+      <title>Episode 9: Freudean Fouls</title>
+      <link>https://1eyebiney.github.io/dusty-farts/episodes/df09-freudean-fouls.html</link>
+      <guid isPermaLink="true">https://1eyebiney.github.io/dusty-farts/episodes/df09-freudean-fouls.html</guid>
+      <pubDate>Mon, 13 Oct 2025 12:00:00 -0500</pubDate>
+      <description>The boys wander into the wrong therapy circle at the YMCA and come out with ink blots, doodles, and opinions about their own subconscious.</description>
+      <enclosure url="https://1eyebiney.github.io/dusty-farts/audio/df09.mp3" length="21233602" type="audio/mpeg"/>
+      <itunes:title>Episode 9: Freudean Fouls</itunes:title>
+      <itunes:summary>The boys wander into the wrong therapy circle at the YMCA and come out with ink blots, doodles, and opinions about their own subconscious.</itunes:summary>
+      <itunes:duration>1327</itunes:duration>
+      <itunes:episode>9</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://1eyebiney.github.io/dusty-farts/images/df09.jpg"/>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:chapters url="https://1eyebiney.github.io/dusty-farts/data/chapters/df09.json" type="application/json+chapters"/>
+    </item>
+    <item>
+      <title>Episode 8: Jiffy Part Deaux</title>
+      <link>https://1eyebiney.github.io/dusty-farts/episodes/df08-jiffy-part-deaux.html</link>
+      <guid isPermaLink="true">https://1eyebiney.github.io/dusty-farts/episodes/df08-jiffy-part-deaux.html</guid>
+      <pubDate>Mon, 06 Oct 2025 12:00:00 -0500</pubDate>
+      <description>Sharpie graffiti on the booth starts a turf war, and somewhere between torque angles and postal-carrier betting, Fred gives away his smart watch.</description>
+      <enclosure url="https://1eyebiney.github.io/dusty-farts/audio/df08.mp3" length="14039123" type="audio/mpeg"/>
+      <itunes:title>Episode 8: Jiffy Part Deaux</itunes:title>
+      <itunes:summary>Sharpie graffiti on the booth starts a turf war, and somewhere between torque angles and postal-carrier betting, Fred gives away his smart watch.</itunes:summary>
+      <itunes:duration>877</itunes:duration>
+      <itunes:episode>8</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://1eyebiney.github.io/dusty-farts/images/df08.jpg"/>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:chapters url="https://1eyebiney.github.io/dusty-farts/data/chapters/df08.json" type="application/json+chapters"/>
+    </item>
+    <item>
+      <title>Episode 7: Fight Club</title>
+      <link>https://1eyebiney.github.io/dusty-farts/episodes/df07-fight-club.html</link>
+      <guid isPermaLink="true">https://1eyebiney.github.io/dusty-farts/episodes/df07-fight-club.html</guid>
+      <pubDate>Fri, 19 Sep 2025 12:00:00 -0500</pubDate>
+      <description>A thermostat argument escalates into a full goat-boxing pageant in the parking lot, refereed by actual goats.</description>
+      <enclosure url="https://1eyebiney.github.io/dusty-farts/audio/df07.mp3" length="15675020" type="audio/mpeg"/>
+      <itunes:title>Episode 7: Fight Club</itunes:title>
+      <itunes:summary>A thermostat argument escalates into a full goat-boxing pageant in the parking lot, refereed by actual goats.</itunes:summary>
+      <itunes:duration>980</itunes:duration>
+      <itunes:episode>7</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://1eyebiney.github.io/dusty-farts/images/df07.jpg"/>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:chapters url="https://1eyebiney.github.io/dusty-farts/data/chapters/df07.json" type="application/json+chapters"/>
+    </item>
+    <item>
+      <title>Episode 6: Nuts and Dolts</title>
+      <link>https://1eyebiney.github.io/dusty-farts/episodes/df06-nuts-and-dolts.html</link>
+      <guid isPermaLink="true">https://1eyebiney.github.io/dusty-farts/episodes/df06-nuts-and-dolts.html</guid>
+      <pubDate>Sat, 13 Sep 2025 12:00:00 -0500</pubDate>
+      <description>Dusty and Farts set up camp on two toilets in a hardware store, taste-test espresso from a gnome, and turn plumbing into prophecy.</description>
+      <enclosure url="https://1eyebiney.github.io/dusty-farts/audio/df06.mp3" length="17907818" type="audio/mpeg"/>
+      <itunes:title>Episode 6: Nuts and Dolts</itunes:title>
+      <itunes:summary>Dusty and Farts set up camp on two toilets in a hardware store, taste-test espresso from a gnome, and turn plumbing into prophecy.</itunes:summary>
+      <itunes:duration>1119</itunes:duration>
+      <itunes:episode>6</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://1eyebiney.github.io/dusty-farts/images/df06.jpg"/>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:chapters url="https://1eyebiney.github.io/dusty-farts/data/chapters/df06.json" type="application/json+chapters"/>
+    </item>
+    <item>
+      <title>Episode 5: Blood Brothers</title>
+      <link>https://1eyebiney.github.io/dusty-farts/episodes/df05-blood-brothers.html</link>
+      <guid isPermaLink="true">https://1eyebiney.github.io/dusty-farts/episodes/df05-blood-brothers.html</guid>
+      <pubDate>Fri, 05 Sep 2025 12:00:00 -0500</pubDate>
+      <description>The boys discover the blood donor bus has free cookies and recliners that basically count as a booth — Dr. Bobby's medical wisdom optional.</description>
+      <enclosure url="https://1eyebiney.github.io/dusty-farts/audio/df05.mp3" length="14353442" type="audio/mpeg"/>
+      <itunes:title>Episode 5: Blood Brothers</itunes:title>
+      <itunes:summary>The boys discover the blood donor bus has free cookies and recliners that basically count as a booth — Dr. Bobby's medical wisdom optional.</itunes:summary>
+      <itunes:duration>897</itunes:duration>
+      <itunes:episode>5</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://1eyebiney.github.io/dusty-farts/images/df05.jpg"/>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:chapters url="https://1eyebiney.github.io/dusty-farts/data/chapters/df05.json" type="application/json+chapters"/>
+    </item>
+    <item>
+      <title>Episode 4: Nut Jobs</title>
+      <link>https://1eyebiney.github.io/dusty-farts/episodes/df04-nut-jobs.html</link>
+      <guid isPermaLink="true">https://1eyebiney.github.io/dusty-farts/episodes/df04-nut-jobs.html</guid>
+      <pubDate>Mon, 01 Sep 2025 12:00:00 -0500</pubDate>
+      <description>John declares the park's squirrels a covert operation; Fred invents a rating scale for nuts, because if coffee gets one, so should pecans.</description>
+      <enclosure url="https://1eyebiney.github.io/dusty-farts/audio/df04.mp3" length="19153353" type="audio/mpeg"/>
+      <itunes:title>Episode 4: Nut Jobs</itunes:title>
+      <itunes:summary>John declares the park's squirrels a covert operation; Fred invents a rating scale for nuts, because if coffee gets one, so should pecans.</itunes:summary>
+      <itunes:duration>1197</itunes:duration>
+      <itunes:episode>4</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://1eyebiney.github.io/dusty-farts/images/df04.jpg"/>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:chapters url="https://1eyebiney.github.io/dusty-farts/data/chapters/df04.json" type="application/json+chapters"/>
+    </item>
+    <item>
+      <title>Episode 3: Lounge Lizards</title>
+      <link>https://1eyebiney.github.io/dusty-farts/episodes/df03-lounge-lizards.html</link>
+      <guid isPermaLink="true">https://1eyebiney.github.io/dusty-farts/episodes/df03-lounge-lizards.html</guid>
+      <pubDate>Fri, 29 Aug 2025 12:00:00 -0500</pubDate>
+      <description>A hijacked prayer-request group chat becomes a coffee-rating scandal, and it turns out not all biscotti comes from a bakery.</description>
+      <enclosure url="https://1eyebiney.github.io/dusty-farts/audio/df03.mp3" length="15521254" type="audio/mpeg"/>
+      <itunes:title>Episode 3: Lounge Lizards</itunes:title>
+      <itunes:summary>A hijacked prayer-request group chat becomes a coffee-rating scandal, and it turns out not all biscotti comes from a bakery.</itunes:summary>
+      <itunes:duration>970</itunes:duration>
+      <itunes:episode>3</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://1eyebiney.github.io/dusty-farts/images/df03.jpg"/>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:chapters url="https://1eyebiney.github.io/dusty-farts/data/chapters/df03.json" type="application/json+chapters"/>
+    </item>
+    <item>
+      <title>Episode 2: Grease Trap Gospel</title>
+      <link>https://1eyebiney.github.io/dusty-farts/episodes/df02-grease-trap-gospel.html</link>
+      <guid isPermaLink="true">https://1eyebiney.github.io/dusty-farts/episodes/df02-grease-trap-gospel.html</guid>
+      <pubDate>Fri, 22 Aug 2025 12:00:00 -0500</pubDate>
+      <description>The boys make their weekly pilgrimage to the Jiffy Lube — not for oil changes, but for the free coffee and a front-row seat to the greasy ballet.</description>
+      <enclosure url="https://1eyebiney.github.io/dusty-farts/audio/df02.mp3" length="14679561" type="audio/mpeg"/>
+      <itunes:title>Episode 2: Grease Trap Gospel</itunes:title>
+      <itunes:summary>The boys make their weekly pilgrimage to the Jiffy Lube — not for oil changes, but for the free coffee and a front-row seat to the greasy ballet.</itunes:summary>
+      <itunes:duration>917</itunes:duration>
+      <itunes:episode>2</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://1eyebiney.github.io/dusty-farts/images/df02.jpg"/>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    <item>
+      <title>Episode 1: Pilot</title>
+      <link>https://1eyebiney.github.io/dusty-farts/episodes/df01-pilot.html</link>
+      <guid isPermaLink="true">https://1eyebiney.github.io/dusty-farts/episodes/df01-pilot.html</guid>
+      <pubDate>Fri, 15 Aug 2025 12:00:00 -0500</pubDate>
+      <description>Two forty-year friends claim a booth at the Polyester Lounge and redefine friendship as sarcasm, side orders, and one more refill of regret.</description>
+      <enclosure url="https://1eyebiney.github.io/dusty-farts/audio/df01.mp3" length="11830333" type="audio/mpeg"/>
+      <itunes:title>Episode 1: Pilot</itunes:title>
+      <itunes:summary>Two forty-year friends claim a booth at the Polyester Lounge and redefine friendship as sarcasm, side orders, and one more refill of regret.</itunes:summary>
+      <itunes:duration>739</itunes:duration>
+      <itunes:episode>1</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://1eyebiney.github.io/dusty-farts/images/df01.jpg"/>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,35 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0.0,
+      "endTime": 100.535,
+      "title": "Title"
+    },
+    {
+      "startTime": 100.535,
+      "endTime": 336.603,
+      "title": "Opening"
+    },
+    {
+      "startTime": 336.603,
+      "endTime": 667.396,
+      "title": "A Booth Declaration"
+    },
+    {
+      "startTime": 667.396,
+      "endTime": 885.631,
+      "title": "You See What?"
+    },
+    {
+      "startTime": 885.631,
+      "endTime": 1048.635,
+      "title": "An Old Friend Stops By"
+    },
+    {
+      "startTime": 1048.635,
+      "endTime": 1326.975,
+      "title": "Doctor Bobby adds clarity?"
+    }
+  ]
+}

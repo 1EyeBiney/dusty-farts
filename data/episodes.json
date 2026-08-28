@@ -1,0 +1,701 @@
+{
+  "_comment": "Episode catalog for the Dusty Farts website and RSS feed. Durations are exact seconds measured by ffprobe on the 128kbps files; sizes are the 128kbps file byte counts (needed for RSS enclosure length). Episodes 1 and 2 were encoded earlier by Brian - verify their duration/size locally with ffprobe before generating the feed. RELEASE DATES CONFIRMED BY BRIAN 2026-08-28 - use as-is, do not re-ask.",
+  "show": {
+    "title": "Dusty Farts",
+    "author": "Brian Clark",
+    "email": "1eyebiney@gmail.com",
+    "description": "Two old friends, one booth, and enough coffee to fuel a small-town power grid. Dusty Farts is an immersive comedy podcast that blends Americana warmth with absurd banter, diner-grade philosophy, and a touch of the surreal.",
+    "explicit": false,
+    "category": [
+      "Fiction",
+      "Comedy Fiction"
+    ],
+    "language": "en-us",
+    "artwork": "Dusty Farts Logo 1400 by 1400 at 80 percent.jpg",
+    "siteUrl": "https://1eyebiney.github.io/dusty-farts/",
+    "repoName": "dusty-farts",
+    "aboutLinks": {
+      "github": "https://github.com/1eyebiney",
+      "firstAidForTheBlind": "https://faftb.com"
+    },
+    "hopeWelcome": "audio/hope-welcome.mp3",
+    "logoAlt": "Two older men sit in a red vinyl diner booth, coffee mugs and condiment bottles between them, a glowing neon “Polyester Lounge — Bottomless Coffee” sign in the window behind. A handwritten caption below reads “Dusty” with an arrow to the man on the left and “Farts” with an arrow to the man on the right: don’t feed them after noon."
+  },
+  "episodes": [
+    {
+      "number": 1,
+      "id": "DF-001",
+      "title": "Pilot",
+      "audioSource": ".render/Lower BitRate/DustyFarts, Volume 1 (128).mp3",
+      "durationSeconds": 739.329,
+      "bytes128k": 11830333,
+      "releaseDate": "2025-08-15",
+      "location": "Polyester Lounge",
+      "art": "Dusty Farts Logo 1400 by 1400 at 80 percent.jpg",
+      "showNotes": "Podcast work/Show Notes/Show Notes DF01 Pilot.docx",
+      "slug": "df01-pilot",
+      "webFile": "audio/df01.mp3",
+      "artWeb": "images/df01.jpg",
+      "artAlt": "Two older men sit in a red vinyl diner booth, coffee mugs and condiment bottles between them, a glowing neon “Polyester Lounge — Bottomless Coffee” sign in the window behind. A handwritten caption below reads “Dusty” with an arrow to the man on the left and “Farts” with an arrow to the man on the right: don’t feed them after noon.",
+      "summary": "Two forty-year friends claim a booth at the Polyester Lounge and redefine friendship as sarcasm, side orders, and one more refill of regret.",
+      "chapters": [],
+      "showNotesData": "data/shownotes/df01.json",
+      "transcript": "data/transcripts/df01.html"
+    },
+    {
+      "number": 2,
+      "id": "DF-002",
+      "title": "Grease Trap Gospel",
+      "audioSource": ".render/Lower BitRate/DustyFarts, Volume 2, Grease Trap Gospel.mp3",
+      "durationSeconds": 917.398,
+      "bytes128k": 14679561,
+      "releaseDate": "2025-08-22",
+      "location": "Jiffy Lube",
+      "art": "02 Grease Trap Gospel Art (1400 by 1400) at 80.jpg",
+      "showNotes": "Podcast work/Show Notes/Show Notes DF02 Grease Trap Gospel.docx",
+      "slug": "df02-grease-trap-gospel",
+      "webFile": "audio/df02.mp3",
+      "artWeb": "images/df02.jpg",
+      "artAlt": "An empty red, cream, and teal diner booth sits in a garage bay: two steaming coffee mugs on the table beside an old drip coffeemaker, a car up on a lift, and a framed roadside-mascot photo on the wall behind.",
+      "summary": "The boys make their weekly pilgrimage to the Jiffy Lube — not for oil changes, but for the free coffee and a front-row seat to the greasy ballet.",
+      "chapters": [],
+      "showNotesData": "data/shownotes/df02.json",
+      "transcript": "data/transcripts/df02.html"
+    },
+    {
+      "number": 3,
+      "id": "DF-003",
+      "title": "Lounge Lizards",
+      "audioSource": ".render/Lower BitRate/DustyFarts, Volume 3, Lounge Lizards.mp3",
+      "durationSeconds": 970,
+      "bytes128k": 15521254,
+      "releaseDate": "2025-08-29",
+      "location": "Polyester Lounge",
+      "art": "03 Lounge Lizards Art (1400 by 1400) at 80.jpg",
+      "showNotes": "Podcast work/Show Notes/Show Notes DF03 Lounge Lizards.docx",
+      "slug": "df03-lounge-lizards",
+      "webFile": "audio/df03.mp3",
+      "artWeb": "images/df03.jpg",
+      "artAlt": "Two bearded dragon lizards, one wearing sunglasses, perch on the back of booth number three in front of a glowing “Polyester Lounge” neon sign, while two cups of coffee and two plates of buttered toast sit on the table below.",
+      "summary": "A hijacked prayer-request group chat becomes a coffee-rating scandal, and it turns out not all biscotti comes from a bakery.",
+      "chapters": [
+        {
+          "title": "Title",
+          "start": 0.0,
+          "end": 86.003
+        },
+        {
+          "title": "Prolog",
+          "start": 86.003,
+          "end": 420.156
+        },
+        {
+          "title": "Tales of Texting",
+          "start": 420.156,
+          "end": 599.975
+        },
+        {
+          "title": "The gift",
+          "start": 599.975,
+          "end": 921.013
+        },
+        {
+          "title": "Close",
+          "start": 921.013,
+          "end": 969.975
+        }
+      ],
+      "showNotesData": "data/shownotes/df03.json",
+      "transcript": "data/transcripts/df03.html"
+    },
+    {
+      "number": 4,
+      "id": "DF-004",
+      "title": "Nut Jobs",
+      "audioSource": ".render/Lower BitRate/DustyFarts, Volume 4, Nut Jobs.mp3",
+      "durationSeconds": 1197,
+      "bytes128k": 19153353,
+      "releaseDate": "2025-09-01",
+      "location": "Maple Gump Park",
+      "art": "04 Nut Jobs Art at 75.jpg",
+      "showNotes": "Podcast work/Show Notes/Show Notes DF04 Nut Jobs.docx",
+      "slug": "df04-nut-jobs",
+      "webFile": "audio/df04.mp3",
+      "artWeb": "images/df04.jpg",
+      "artAlt": "Two squirrels perch on the back of a red diner booth beside a small orange cooler, eyeing a ham sandwich, a dish of shredded nuts, and a bowl of little hot dogs set out on the table.",
+      "summary": "John declares the park's squirrels a covert operation; Fred invents a rating scale for nuts, because if coffee gets one, so should pecans.",
+      "chapters": [
+        {
+          "title": "Title",
+          "start": 0.0,
+          "end": 50.019
+        },
+        {
+          "title": "Intro",
+          "start": 50.019,
+          "end": 336.587
+        },
+        {
+          "title": "Dem Squirrels Have Eyes",
+          "start": 336.587,
+          "end": 442.123
+        },
+        {
+          "title": "My boy, Curtis",
+          "start": 442.123,
+          "end": 997.735
+        },
+        {
+          "title": "Birthday Boy Comin' Through",
+          "start": 997.735,
+          "end": 1196.975
+        }
+      ],
+      "showNotesData": "data/shownotes/df04.json",
+      "transcript": "data/transcripts/df04.html"
+    },
+    {
+      "number": 5,
+      "id": "DF-005",
+      "title": "Blood Brothers",
+      "audioSource": ".render/Lower BitRate/DustyFarts, Volume 5, Blood Brothers.mp3",
+      "durationSeconds": 897,
+      "bytes128k": 14353442,
+      "releaseDate": "2025-09-05",
+      "location": "Doctor Bobby's Blood Bus",
+      "art": "05 Blood Brothers Art at 75.jpg",
+      "showNotes": "Podcast work/Show Notes/Show Notes DF05 Blood Brothers.docx",
+      "slug": "df05-blood-brothers",
+      "webFile": "audio/df05.mp3",
+      "artWeb": "images/df05.jpg",
+      "artAlt": "Two matching recliners sit in a blood-donation room, IV poles and bags on either side, a plate of chocolate chip cookies on the table between them, medical supplies lined up on the counter above.",
+      "summary": "The boys discover the blood donor bus has free cookies and recliners that basically count as a booth — Dr. Bobby's medical wisdom optional.",
+      "chapters": [
+        {
+          "title": "Title",
+          "start": 0.0,
+          "end": 84.918
+        },
+        {
+          "title": "Prolog",
+          "start": 84.918,
+          "end": 286.017
+        },
+        {
+          "title": "Enter D. Bobby",
+          "start": 286.017,
+          "end": 606.427
+        },
+        {
+          "title": "Dr. Bobby consults Dr. Cassie",
+          "start": 606.427,
+          "end": 896.975
+        }
+      ],
+      "showNotesData": "data/shownotes/df05.json",
+      "transcript": "data/transcripts/df05.html"
+    },
+    {
+      "number": 6,
+      "id": "DF-006",
+      "title": "Nuts and Dolts",
+      "audioSource": ".render/Lower BitRate/DustyFarts, Volume 6, Nuts and Dolts.mp3",
+      "durationSeconds": 1119,
+      "bytes128k": 17907818,
+      "releaseDate": "2025-09-13",
+      "location": "Menards",
+      "art": "06 Nuts and Dolts Art at 80.jpg",
+      "showNotes": "Podcast work/Show Notes/Show Notes DF06 Nuts and Dolts.docx",
+      "slug": "df06-nuts-and-dolts",
+      "webFile": "audio/df06.mp3",
+      "artWeb": "images/df06.jpg",
+      "artAlt": "A bearded garden gnome in a red coat stands on an end table between two toilets in a warehouse aisle, holding a length of hose, with a potted plant, a lit taper candle, and a pink flamingo nearby.",
+      "summary": "Dusty and Farts set up camp on two toilets in a hardware store, taste-test espresso from a gnome, and turn plumbing into prophecy.",
+      "chapters": [
+        {
+          "title": "Title",
+          "start": 0.0,
+          "end": 95.552
+        },
+        {
+          "title": "Intro",
+          "start": 95.552,
+          "end": 448.859
+        },
+        {
+          "title": "An Old Friend",
+          "start": 448.859,
+          "end": 643.086
+        },
+        {
+          "title": "Another Old Friend",
+          "start": 643.086,
+          "end": 813.435
+        },
+        {
+          "title": "The Third Stooge",
+          "start": 813.435,
+          "end": 1119.123
+        }
+      ],
+      "showNotesData": "data/shownotes/df06.json",
+      "transcript": "data/transcripts/df06.html"
+    },
+    {
+      "number": 7,
+      "id": "DF-007",
+      "title": "Fight Club",
+      "audioSource": ".render/Lower BitRate/DustyFarts, Volume 7, Fight Club.mp3",
+      "durationSeconds": 980,
+      "bytes128k": 15675020,
+      "releaseDate": "2025-09-19",
+      "location": "Polyester Lounge",
+      "art": "07 Fight Club Art at 80.jpg",
+      "showNotes": "Podcast work/Show Notes/Show Notes DF07 Fight Club.docx",
+      "slug": "df07-fight-club",
+      "webFile": "audio/df07.mp3",
+      "artWeb": "images/df07.jpg",
+      "artAlt": "Two goats wearing red boxing gloves stand in a parking lot in front of the glowing Polyester Lounge sign and a “Marquis of Sheepsberrie” delivery truck, a microphone and speaker set up between them like a weigh-in.",
+      "summary": "A thermostat argument escalates into a full goat-boxing pageant in the parking lot, refereed by actual goats.",
+      "chapters": [
+        {
+          "title": "Title",
+          "start": 0.0,
+          "end": 78.721
+        },
+        {
+          "title": "Intro",
+          "start": 78.721,
+          "end": 460.245
+        },
+        {
+          "title": "Parking Lot Pagent",
+          "start": 460.245,
+          "end": 733.941
+        },
+        {
+          "title": "Sheepsberry Rules",
+          "start": 733.941,
+          "end": 979.588
+        }
+      ],
+      "showNotesData": "data/shownotes/df07.json",
+      "transcript": "data/transcripts/df07.html"
+    },
+    {
+      "number": 8,
+      "id": "DF-008",
+      "title": "Jiffy Part Deaux",
+      "audioSource": ".render/Lower BitRate/DustyFarts, Volume 8, Jiffy Part Deaux.mp3",
+      "durationSeconds": 877,
+      "bytes128k": 14039123,
+      "releaseDate": "2025-10-06",
+      "location": "Jiffy Lube",
+      "art": "08 Jiffy Part Deaux Art (1400 by 1400) at 80.jpg",
+      "showNotes": "Podcast work/Show Notes/Show Notes DF08 Jiffy Part Deaux.docx",
+      "slug": "df08-jiffy-part-deaux",
+      "webFile": "audio/df08.mp3",
+      "artWeb": "images/df08.jpg",
+      "artAlt": "An empty diner booth scrawled with doodled stars and stick figures in marker, a lone coffee mug and two pens on the table, a car-repair garage visible through the doorway behind.",
+      "summary": "Sharpie graffiti on the booth starts a turf war, and somewhere between torque angles and postal-carrier betting, Fred gives away his smart watch.",
+      "chapters": [
+        {
+          "title": "Title",
+          "start": 0.0,
+          "end": 87.067
+        },
+        {
+          "title": "Intro",
+          "start": 87.067,
+          "end": 342.947
+        },
+        {
+          "title": "Mending Fences",
+          "start": 342.947,
+          "end": 671.872
+        },
+        {
+          "title": "Jiffy Gymnastics",
+          "start": 671.872,
+          "end": 877.338
+        }
+      ],
+      "showNotesData": "data/shownotes/df08.json",
+      "transcript": "data/transcripts/df08.html"
+    },
+    {
+      "number": 9,
+      "id": "DF-009",
+      "title": "Freudean Fouls",
+      "audioSource": "chat-delivered or re-encode from .render/DustyFarts, Volume 9, Freudean Fouls.mp3",
+      "durationSeconds": 1327,
+      "bytes128k": 21233602,
+      "releaseDate": "2025-10-13",
+      "location": "Maple Grove YMCA",
+      "art": "09 Freudean Fouls art (1400 by 1400) at 80.jpg",
+      "showNotes": "Podcast work/Show Notes/Show Notes DF09 Freudean Fouls.docx",
+      "slug": "df09-freudean-fouls",
+      "webFile": "audio/df09.mp3",
+      "artWeb": "images/df09.jpg",
+      "artAlt": "An empty YMCA gymnasium with a scoreboard reading “Maple Grove” on the wall and basketballs scattered across the floor, two worn diner-style booth benches pulled up to a folding table set with mismatched mugs and a pitcher.",
+      "summary": "The boys wander into the wrong therapy circle at the YMCA and come out with ink blots, doodles, and opinions about their own subconscious.",
+      "chapters": [
+        {
+          "title": "Title",
+          "start": 0.0,
+          "end": 100.535
+        },
+        {
+          "title": "Opening",
+          "start": 100.535,
+          "end": 336.603
+        },
+        {
+          "title": "A Booth Declaration",
+          "start": 336.603,
+          "end": 667.396
+        },
+        {
+          "title": "You See What?",
+          "start": 667.396,
+          "end": 885.631
+        },
+        {
+          "title": "An Old Friend Stops By",
+          "start": 885.631,
+          "end": 1048.635
+        },
+        {
+          "title": "Doctor Bobby adds clarity?",
+          "start": 1048.635,
+          "end": 1326.975
+        }
+      ],
+      "showNotesData": "data/shownotes/df09.json",
+      "transcript": "data/transcripts/df09.html"
+    },
+    {
+      "number": 10,
+      "id": "DF-010",
+      "title": "Jingle Jamboree",
+      "audioSource": "chat-delivered or re-encode from .render/DustyFarts, Volume 10, Jingle Jamboree.mp3",
+      "durationSeconds": 1756,
+      "bytes128k": 28097516,
+      "releaseDate": "2025-10-20",
+      "location": "Maple Grove Sound Stage",
+      "art": "10 Jingle Jamboree art (1400 by 1400) at 50.jpg",
+      "showNotes": "Podcast work/Show Notes/Show Notes DF10 Jingle Jamboree.docx",
+      "slug": "df10-jingle-jamboree",
+      "webFile": "audio/df10.mp3",
+      "artWeb": "images/df10.jpg",
+      "artAlt": "A swirling, psychedelic poster in reds, teals, and purples: a steaming mug of coffee and a harmonica flank two squirrels holding coffee beans, above a curved diner booth, under lettering that reads “Jingle Jamboree.”",
+      "summary": "Aria hijacks the show for a jingle retrospective — every Dusty Farts earworm ever recorded, replayed, and lightly regretted.",
+      "chapters": [
+        {
+          "title": "Original Jingle",
+          "start": 213.515,
+          "end": 362.27
+        },
+        {
+          "title": "Jingle 1",
+          "start": 362.27,
+          "end": 564.256
+        },
+        {
+          "title": "Jingle 2",
+          "start": 564.256,
+          "end": 724.834
+        },
+        {
+          "title": "Jingle 3",
+          "start": 724.834,
+          "end": 1009.026
+        },
+        {
+          "title": "Jingle 4",
+          "start": 1009.026,
+          "end": 1199.055
+        },
+        {
+          "title": "Jingle 4, alternate version",
+          "start": 1199.055,
+          "end": 1414.588
+        },
+        {
+          "title": "Jingle 5",
+          "start": 1414.588,
+          "end": 1526.16
+        },
+        {
+          "title": "Jingle 5, alternate version",
+          "start": 1526.16,
+          "end": 1676.56
+        },
+        {
+          "title": "Jingle 6, alternate version",
+          "start": 1676.56,
+          "end": 1755.975
+        }
+      ],
+      "showNotesData": "data/shownotes/df10.json",
+      "transcript": "data/transcripts/df10.html"
+    },
+    {
+      "number": 11,
+      "id": "DF-011",
+      "title": "Condiment Clash",
+      "audioSource": "chat-delivered or re-encode from .render/DustyFarts, Volume 11, Condiment Clash.mp3",
+      "durationSeconds": 1312,
+      "bytes128k": 20993202,
+      "releaseDate": "2025-10-27",
+      "location": "Polyester Lounge",
+      "art": "11 Condiment Clash art (1400 by 1400) at 80.jpg",
+      "showNotes": "Podcast work/Show Notes/Show Notes DF11 Condiment Clash.docx",
+      "slug": "df11-condiment-clash",
+      "webFile": "audio/df11.mp3",
+      "artWeb": "images/df11.jpg",
+      "artAlt": "A map split down the middle like warring nations: ketchup, relish, and mayonnaise on the red side, sriracha, mustard, and rice on the blue side, titled “Condiment Clash.”",
+      "summary": "A missed blood-bus appointment turns hangry, and one wrong squirt of ketchup ignites a full tabletop condiment war.",
+      "chapters": [
+        {
+          "title": "Title",
+          "start": 0.0,
+          "end": 88.853
+        },
+        {
+          "title": "Opening",
+          "start": 88.853,
+          "end": 312.806
+        },
+        {
+          "title": "How crispy?",
+          "start": 312.806,
+          "end": 641.479
+        },
+        {
+          "title": "Mustard and Ketchup",
+          "start": 641.479,
+          "end": 900.88
+        },
+        {
+          "title": "Pawns in the grand scheme",
+          "start": 900.88,
+          "end": 1311.975
+        }
+      ],
+      "showNotesData": "data/shownotes/df11.json",
+      "transcript": "data/transcripts/df11.html"
+    },
+    {
+      "number": 12,
+      "id": "DF-012",
+      "title": "Booth or Treat - The Maple Grove Spooktacular Special (Parts 12 and 13)",
+      "audioSource": "chat-delivered or re-encode from .render/DustyFarts, Volume 12 and 13, Booth or Treat - The Maple Grove Spooktacular Special.mp3",
+      "durationSeconds": 1922,
+      "bytes128k": 30755645,
+      "releaseDate": "2025-10-31",
+      "location": "Maple Gump Park",
+      "art": "12 and 13 Booth of Doom Art (1400 by 1400) at 80.jpg",
+      "showNotes": "Podcast work/Show Notes/Show Notes DF12 and 13 Booth or Treat - A Maple Grove Spooktacular Special.docx",
+      "slug": "df12-13-booth-or-treat",
+      "webFile": "audio/df12-13.mp3",
+      "artWeb": "images/df12-13.jpg",
+      "artAlt": "The open tailgate of a hearse at dusk: two small wooden coffins nested in cobwebs, a bubbling cauldron, a sheeted ghost, and piles of Halloween candy laid out like trick-or-treat loot, titled “Booth or Treat: Booth of Doom.”",
+      "summary": "The boys build the Booth of Doom out of a borrowed hearse and two discount coffins for Maple Grove's Trunk or Treat contest.",
+      "chapters": [
+        {
+          "title": "Arrival at the park",
+          "start": 245.341,
+          "end": 414.459
+        },
+        {
+          "title": "A Ruling on the Booth of Doom",
+          "start": 414.459,
+          "end": 746.312
+        },
+        {
+          "title": "Gigi and Her Hog",
+          "start": 746.312,
+          "end": 1024.975
+        },
+        {
+          "title": "A Tiny Problem",
+          "start": 1024.975,
+          "end": 1228.975
+        },
+        {
+          "title": "It's a What?",
+          "start": 1228.975,
+          "end": 1501.854
+        },
+        {
+          "title": "An Official Ruling",
+          "start": 1501.854,
+          "end": 1830.355
+        },
+        {
+          "title": "Dusty Farts Spooktacular Jingle 2",
+          "start": 1830.355,
+          "end": 1922.103
+        }
+      ],
+      "showNotesData": "data/shownotes/df12-13.json",
+      "transcript": "data/transcripts/df12-13.html"
+    },
+    {
+      "number": 14,
+      "id": "DF-014",
+      "title": "Drip, Drip, Horray!",
+      "audioSource": ".render/Lower BitRate/DustyFarts, Volume 14, Drip, Drip, Horray!.mp3",
+      "durationSeconds": 1074,
+      "bytes128k": 17181831,
+      "releaseDate": "2025-11-21",
+      "location": "Doctor Bobby's Blood Bus",
+      "art": "14 Drip, Drip, Horray! Art (1400 by 1400) at 80.jpg",
+      "showNotes": "Podcast work/Show Notes/Show Notes DF14 Drip, Drip, Horray!.docx",
+      "slug": "df14-drip-drip-horray",
+      "webFile": "audio/df14.mp3",
+      "artWeb": "images/df14.jpg",
+      "artAlt": "A converted mobile blood-drive bus painted with a garish banner reading “Doctor Bobby’s Rolling Vein Drain Extravaganza,” donor recliners and IV equipment visible through its windows, titled “Drip, Drip, Horray!”",
+      "summary": "John unlocks a self-diagnosed detective talent he calls Clue-dini, and the blood bus never fully recovers.",
+      "chapters": [
+        {
+          "title": "Title",
+          "start": 0.0,
+          "end": 82.149
+        },
+        {
+          "title": "Intro",
+          "start": 82.149,
+          "end": 266.02
+        },
+        {
+          "title": "Hello, Doctor Bobby",
+          "start": 266.02,
+          "end": 703.957
+        },
+        {
+          "title": "Talk Turns to Candy",
+          "start": 703.957,
+          "end": 840.326
+        },
+        {
+          "title": "R Word of the Day",
+          "start": 840.326,
+          "end": 1073.752
+        }
+      ],
+      "showNotesData": "data/shownotes/df14.json",
+      "transcript": "data/transcripts/df14.html"
+    },
+    {
+      "number": 16,
+      "id": "DF-016",
+      "title": "Murder in the Park",
+      "audioSource": "chat-delivered or re-encode from .render/DustyFarts, Volume 16, Murder in the Park.mp3",
+      "durationSeconds": 1804,
+      "bytes128k": 28865556,
+      "releaseDate": "2025-12-24",
+      "location": "Maple Gump Park",
+      "art": "16  Murder in the Park art (1400 by 1400) at 65.jpg",
+      "showNotes": "Podcast work/Show Notes/Show Notes DF16 Murder in the Park.docx",
+      "slug": "df16-murder-in-the-park",
+      "webFile": "audio/df16.mp3",
+      "artWeb": "images/df16.jpg",
+      "artAlt": "A comic-style park scene: two older men in trench coats sit at a picnic table under a “Maple Gump Park” sign examining evidence with a magnifying glass, surrounded by inset panels of muddy sandal prints, a syringe and gloves, a bench with a dropped hot dog, and scattered gems, titled “Murder in the Park.”",
+      "summary": "Clue-dini returns for his toughest case yet: a dead squirrel, on the table, in the booth.",
+      "chapters": [
+        {
+          "title": "Intro",
+          "start": 0.0,
+          "end": 105.46
+        },
+        {
+          "title": "Arrival at the park",
+          "start": 105.46,
+          "end": 302.648
+        },
+        {
+          "title": "An unfamiliar sight at a familiar booth",
+          "start": 302.648,
+          "end": 695.174
+        },
+        {
+          "title": "The Gathering",
+          "start": 695.174,
+          "end": 982.174
+        },
+        {
+          "title": "The game begins.",
+          "start": 982.174,
+          "end": 1457.174
+        },
+        {
+          "title": "The cavalry arrives",
+          "start": 1457.174,
+          "end": 1803.975
+        }
+      ],
+      "showNotesData": "data/shownotes/df16.json",
+      "transcript": "data/transcripts/df16.html"
+    },
+    {
+      "number": 17,
+      "id": "DF-017",
+      "title": "All Power to the Ball",
+      "audioSource": "chat-delivered or re-encode from .render/DustyFarts, Volume 17 All Power to the Ball.mp3",
+      "durationSeconds": 1429,
+      "bytes128k": 22870258,
+      "releaseDate": "2026-01-01",
+      "location": "Blood Bus / Polyester Lounge",
+      "art": "17 All Power to the Ball art (1400 by 1400) at 60.jpg",
+      "showNotes": "Podcast work/Show Notes/Show Notes DF17 All Power to the Ball.docx",
+      "slug": "df17-all-power-to-the-ball",
+      "webFile": "audio/df17.mp3",
+      "artWeb": "images/df17.jpg",
+      "artAlt": "A glittering, multicolored New Year’s Eve ball atop a wooden rigging tower wired to a control panel, fireworks and balloons overhead, a banner reading “All Power to the Ball — Happy New Year 2026.”",
+      "summary": "Maple Grove unplugs itself fridge by fridge in pursuit of one clean New Year's countdown for the Ball.",
+      "chapters": [
+        {
+          "title": "Opening",
+          "start": 0.0,
+          "end": 85.708
+        },
+        {
+          "title": "Intro",
+          "start": 85.708,
+          "end": 391.86
+        },
+        {
+          "title": "Aria arrives",
+          "start": 391.86,
+          "end": 719.86
+        },
+        {
+          "title": "A little excited?",
+          "start": 719.86,
+          "end": 1040.785
+        },
+        {
+          "title": "The clock strikes midnight.",
+          "start": 1040.785,
+          "end": 1429.274
+        }
+      ],
+      "showNotesData": "data/shownotes/df17.json",
+      "transcript": "data/transcripts/df17.html"
+    }
+  ],
+  "excludedForNow": [
+    {
+      "number": 15,
+      "title": "Chatty Tarts Pilot",
+      "reason": "Spin-off; Brian decided not yet. No rendered MP3 exists in .render."
+    },
+    {
+      "number": 18,
+      "title": "Goats Revisited",
+      "reason": "Still in production - scripts exist, no final render."
+    }
+  ]
+}

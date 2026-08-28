@@ -1,0 +1,40 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 245.341,
+      "endTime": 414.459,
+      "title": "Arrival at the park"
+    },
+    {
+      "startTime": 414.459,
+      "endTime": 746.312,
+      "title": "A Ruling on the Booth of Doom"
+    },
+    {
+      "startTime": 746.312,
+      "endTime": 1024.975,
+      "title": "Gigi and Her Hog"
+    },
+    {
+      "startTime": 1024.975,
+      "endTime": 1228.975,
+      "title": "A Tiny Problem"
+    },
+    {
+      "startTime": 1228.975,
+      "endTime": 1501.854,
+      "title": "It's a What?"
+    },
+    {
+      "startTime": 1501.854,
+      "endTime": 1830.355,
+      "title": "An Official Ruling"
+    },
+    {
+      "startTime": 1830.355,
+      "endTime": 1922.103,
+      "title": "Dusty Farts Spooktacular Jingle 2"
+    }
+  ]
+}

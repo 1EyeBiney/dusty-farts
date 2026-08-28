@@ -1,0 +1,25 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0.0,
+      "endTime": 84.918,
+      "title": "Title"
+    },
+    {
+      "startTime": 84.918,
+      "endTime": 286.017,
+      "title": "Prolog"
+    },
+    {
+      "startTime": 286.017,
+      "endTime": 606.427,
+      "title": "Enter D. Bobby"
+    },
+    {
+      "startTime": 606.427,
+      "endTime": 896.975,
+      "title": "Dr. Bobby consults Dr. Cassie"
+    }
+  ]
+}

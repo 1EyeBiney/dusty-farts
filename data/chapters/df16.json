@@ -1,0 +1,35 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0.0,
+      "endTime": 105.46,
+      "title": "Intro"
+    },
+    {
+      "startTime": 105.46,
+      "endTime": 302.648,
+      "title": "Arrival at the park"
+    },
+    {
+      "startTime": 302.648,
+      "endTime": 695.174,
+      "title": "An unfamiliar sight at a familiar booth"
+    },
+    {
+      "startTime": 695.174,
+      "endTime": 982.174,
+      "title": "The Gathering"
+    },
+    {
+      "startTime": 982.174,
+      "endTime": 1457.174,
+      "title": "The game begins."
+    },
+    {
+      "startTime": 1457.174,
+      "endTime": 1803.975,
+      "title": "The cavalry arrives"
+    }
+  ]
+}

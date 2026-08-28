@@ -1,0 +1,25 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0.0,
+      "endTime": 87.067,
+      "title": "Title"
+    },
+    {
+      "startTime": 87.067,
+      "endTime": 342.947,
+      "title": "Intro"
+    },
+    {
+      "startTime": 342.947,
+      "endTime": 671.872,
+      "title": "Mending Fences"
+    },
+    {
+      "startTime": 671.872,
+      "endTime": 877.338,
+      "title": "Jiffy Gymnastics"
+    }
+  ]
+}

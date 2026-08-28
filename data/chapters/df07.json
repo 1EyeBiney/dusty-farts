@@ -1,0 +1,25 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0.0,
+      "endTime": 78.721,
+      "title": "Title"
+    },
+    {
+      "startTime": 78.721,
+      "endTime": 460.245,
+      "title": "Intro"
+    },
+    {
+      "startTime": 460.245,
+      "endTime": 733.941,
+      "title": "Parking Lot Pagent"
+    },
+    {
+      "startTime": 733.941,
+      "endTime": 979.588,
+      "title": "Sheepsberry Rules"
+    }
+  ]
+}

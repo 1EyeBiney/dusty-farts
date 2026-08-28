@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Subscribe — Dusty Farts</title>
+<meta name="description" content="How to listen to Dusty Farts: the site player, RSS feed, and podcast apps.">
+<link rel="stylesheet" href="css/site.css">
+<link rel="alternate" type="application/rss+xml" title="Dusty Farts" href="feed.xml">
+<script>window.SITE_BASE = "";</script>
+</head>
+<body>
+<div class="paper-speckle" aria-hidden="true"></div>
+<div class="skip-links">
+<a href="#main">Skip to main content</a>
+<a href="#df-player">Jump to player</a>
+</div>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-title-link" href="index.html"><p class="site-title">Dusty Farts</p></a>
+    <nav class="site-nav" aria-label="Site">
+      <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="episodes.html">Episodes</a></li>
+            <li><a href="maple-grove.html">Meet Maple Grove</a></li>
+            <li><a href="jukebox.html">Jingle Jukebox</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="subscribe.html" aria-current="page">Subscribe</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<h1>Subscribe</h1>
+<p class="subtitle">Never miss a refill.</p>
+
+<h2>Listen on this site</h2>
+<p>Press H anywhere to open the player. Press ? (question mark) any time to pause the
+audio and see the full list of keyboard shortcuts.</p>
+<ul>
+  <li><strong>Keyboard:</strong> press H from anywhere on the site to expand and focus
+    the player; the same key collapses it again once focus is inside.</li>
+  <li><strong>Mouse:</strong> use any Play button, or the player bar fixed at the
+    bottom of the page — click "Expand player" for the full controls.</li>
+  <li><strong>Screen reader (Browse Mode):</strong> the player is a labeled region at
+    the very end of every page, under a heading named "Player" — press your headings
+    key until you hear it, or use the "Jump to player" link right after the skip link.
+    Once you tab or arrow onto a control, your screen reader will switch to focus mode
+    and the full key map applies.</li>
+</ul>
+
+<h2>RSS feed</h2>
+<p>Dusty Farts publishes a standard podcast RSS feed. Paste this URL into any podcast
+app:</p>
+<div class="feed-url-field">
+  <label for="feed-url" class="visually-hidden">Feed URL</label>
+  <input type="text" id="feed-url" value="https://1eyebiney.github.io/dusty-farts/feed.xml" readonly>
+  <button type="button" class="btn" id="copy-feed-btn">Copy</button>
+</div>
+<p id="copy-feed-status" role="status" class="visually-hidden"></p>
+<script>
+(function () {
+  var btn = document.getElementById('copy-feed-btn');
+  var status = document.getElementById('copy-feed-status');
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    var field = document.getElementById('feed-url');
+    field.select();
+    navigator.clipboard && navigator.clipboard.writeText(field.value).then(function () {
+      status.textContent = 'Feed URL copied.';
+    }).catch(function () {
+      status.textContent = 'Copy failed — select the text and copy it manually.';
+    });
+  });
+})();
+</script>
+
+<p>Once the feed is listed, links for Apple Podcasts and Spotify will go here.</p>
+
+<p>Hope's take: the coffee's better in person, but the feed doesn't spill in your bag.</p>
+</main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <p>Dusty Farts — an immersive comedy podcast from Maple Grove.</p>
+    <p class="shortcuts-note">Keyboard shortcuts: press ? (question mark) any time — it pauses the audio and lists every key.</p>
+    <p><a href="feed.xml">RSS feed</a> · <a href="https://github.com/1eyebiney">Brian on GitHub</a></p>
+  </div>
+</footer>
+<script src="js/player.js" defer></script>
+<script src="js/site.js" defer></script>
+  <div class="player-region" id="df-player" data-expanded="false" data-playing="false">
+    <div class="player-bar" id="df-player-bar">
+      <span class="player-dot" id="df-player-dot" aria-hidden="true"></span>
+      <span class="player-bar-title" id="df-player-bar-title">Nothing playing yet</span>
+      <div class="player-bar-controls">
+        <button type="button" class="player-icon-btn" data-action="playpause" aria-label="Play" accesskey="p">&#9654;</button>
+        <button type="button" class="player-icon-btn" data-action="expand" aria-label="Expand player">&#9650;</button>
+      </div>
+    </div>
+    <div class="player-panel" id="df-player-panel" role="region" aria-label="Dusty Farts player">
+      <h2 tabindex="-1">Player</h2>
+      <p class="player-now-playing" id="df-player-nowplaying">Nothing playing yet</p>
+      <p class="player-time"><span id="df-player-time">0:00 / 0:00</span></p>
+      <input type="range" class="player-seek" id="df-player-seek" min="0" max="0" value="0" aria-label="Seek">
+      <div class="player-transport">
+        <button type="button" class="player-icon-btn" data-action="playpause" aria-label="Play">&#9654; Play</button>
+        <button type="button" class="player-icon-btn" data-action="back10">&#8592; 10s</button>
+        <button type="button" class="player-icon-btn" data-action="fwd10">10s &#8594;</button>
+        <button type="button" class="player-icon-btn" data-action="back60">&#8592; 1 min</button>
+        <button type="button" class="player-icon-btn" data-action="fwd60">1 min &#8594;</button>
+        <button type="button" class="player-icon-btn" data-action="prevchapter">Previous chapter</button>
+        <button type="button" class="player-icon-btn" data-action="nextchapter">Next chapter</button>
+        <button type="button" class="player-icon-btn" data-action="chapters">Chapters</button>
+        <button type="button" class="player-icon-btn" data-action="prevepisode">Previous episode</button>
+        <button type="button" class="player-icon-btn" data-action="nextepisode">Next episode</button>
+        <button type="button" class="player-icon-btn" data-action="shortcuts">Keyboard shortcuts</button>
+        <button type="button" class="player-icon-btn" data-action="collapse">Collapse</button>
+      </div>
+      <div class="player-settings">
+        <input type="checkbox" id="player-autoadvance" checked>
+        <label for="player-autoadvance">Auto-advance to next episode</label>
+      </div>
+      <div class="player-chapters" id="df-player-chapters" hidden>
+        <h3 tabindex="-1">Chapters</h3>
+        <ul id="df-player-chapters-list"></ul>
+      </div>
+      <div class="player-shortcuts" id="df-player-shortcuts" hidden>
+        <h3 tabindex="-1">Keyboard shortcuts</h3>
+        <dl>
+        <dt>H</dt>
+        <dd>Expand and focus the player (or collapse it, from inside).</dd>
+        <dt>? (question mark)</dt>
+        <dd>Pause, and open or close this shortcuts list.</dd>
+        <dt>Space</dt>
+        <dd>Play or pause.</dd>
+        <dt>Left / Right arrow</dt>
+        <dd>Back or forward 10 seconds.</dd>
+        <dt>Shift + Left / Right</dt>
+        <dd>Back or forward 1 minute.</dd>
+        <dt>Ctrl + Left / Right</dt>
+        <dd>Back or forward 5 minutes.</dd>
+        <dt>Page Up / Page Down</dt>
+        <dd>Previous or next chapter.</dd>
+        <dt>C</dt>
+        <dd>Open the chapter list.</dd>
+        <dt>Up / Down arrow</dt>
+        <dd>Previous or next episode.</dd>
+        <dt>Home</dt>
+        <dd>Restart the current episode.</dd>
+        <dt>Escape</dt>
+        <dd>Collapse the player and return focus to where it was.</dd>
+        </dl>
+        <button type="button" class="btn btn-quiet" data-action="shortcuts">Close</button>
+      </div>
+    </div>
+    <div class="player-live-region" id="df-player-live" aria-live="polite" aria-atomic="true"></div>
+  </div>
+</body>
+</html>

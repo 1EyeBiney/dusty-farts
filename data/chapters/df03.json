@@ -1,0 +1,30 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0.0,
+      "endTime": 86.003,
+      "title": "Title"
+    },
+    {
+      "startTime": 86.003,
+      "endTime": 420.156,
+      "title": "Prolog"
+    },
+    {
+      "startTime": 420.156,
+      "endTime": 599.975,
+      "title": "Tales of Texting"
+    },
+    {
+      "startTime": 599.975,
+      "endTime": 921.013,
+      "title": "The gift"
+    },
+    {
+      "startTime": 921.013,
+      "endTime": 969.975,
+      "title": "Close"
+    }
+  ]
+}

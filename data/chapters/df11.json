@@ -1,0 +1,30 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0.0,
+      "endTime": 88.853,
+      "title": "Title"
+    },
+    {
+      "startTime": 88.853,
+      "endTime": 312.806,
+      "title": "Opening"
+    },
+    {
+      "startTime": 312.806,
+      "endTime": 641.479,
+      "title": "How crispy?"
+    },
+    {
+      "startTime": 641.479,
+      "endTime": 900.88,
+      "title": "Mustard and Ketchup"
+    },
+    {
+      "startTime": 900.88,
+      "endTime": 1311.975,
+      "title": "Pawns in the grand scheme"
+    }
+  ]
+}

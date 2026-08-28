@@ -1,0 +1,7 @@
+Thumbs.db
+desktop.ini
+*.tmp
+peaks/
+hope intro.txt
+__pycache__/
+*.pyc

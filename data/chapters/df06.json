@@ -1,0 +1,30 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0.0,
+      "endTime": 95.552,
+      "title": "Title"
+    },
+    {
+      "startTime": 95.552,
+      "endTime": 448.859,
+      "title": "Intro"
+    },
+    {
+      "startTime": 448.859,
+      "endTime": 643.086,
+      "title": "An Old Friend"
+    },
+    {
+      "startTime": 643.086,
+      "endTime": 813.435,
+      "title": "Another Old Friend"
+    },
+    {
+      "startTime": 813.435,
+      "endTime": 1119.123,
+      "title": "The Third Stooge"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0.0,
+      "endTime": 85.708,
+      "title": "Opening"
+    },
+    {
+      "startTime": 85.708,
+      "endTime": 391.86,
+      "title": "Intro"
+    },
+    {
+      "startTime": 391.86,
+      "endTime": 719.86,
+      "title": "Aria arrives"
+    },
+    {
+      "startTime": 719.86,
+      "endTime": 1040.785,
+      "title": "A little excited?"
+    },
+    {
+      "startTime": 1040.785,
+      "endTime": 1429.274,
+      "title": "The clock strikes midnight."
+    }
+  ]
+}

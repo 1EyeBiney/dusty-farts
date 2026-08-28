@@ -1,0 +1,50 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 213.515,
+      "endTime": 362.27,
+      "title": "Original Jingle"
+    },
+    {
+      "startTime": 362.27,
+      "endTime": 564.256,
+      "title": "Jingle 1"
+    },
+    {
+      "startTime": 564.256,
+      "endTime": 724.834,
+      "title": "Jingle 2"
+    },
+    {
+      "startTime": 724.834,
+      "endTime": 1009.026,
+      "title": "Jingle 3"
+    },
+    {
+      "startTime": 1009.026,
+      "endTime": 1199.055,
+      "title": "Jingle 4"
+    },
+    {
+      "startTime": 1199.055,
+      "endTime": 1414.588,
+      "title": "Jingle 4, alternate version"
+    },
+    {
+      "startTime": 1414.588,
+      "endTime": 1526.16,
+      "title": "Jingle 5"
+    },
+    {
+      "startTime": 1526.16,
+      "endTime": 1676.56,
+      "title": "Jingle 5, alternate version"
+    },
+    {
+      "startTime": 1676.56,
+      "endTime": 1755.975,
+      "title": "Jingle 6, alternate version"
+    }
+  ]
+}

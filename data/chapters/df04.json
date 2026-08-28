@@ -1,0 +1,30 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0.0,
+      "endTime": 50.019,
+      "title": "Title"
+    },
+    {
+      "startTime": 50.019,
+      "endTime": 336.587,
+      "title": "Intro"
+    },
+    {
+      "startTime": 336.587,
+      "endTime": 442.123,
+      "title": "Dem Squirrels Have Eyes"
+    },
+    {
+      "startTime": 442.123,
+      "endTime": 997.735,
+      "title": "My boy, Curtis"
+    },
+    {
+      "startTime": 997.735,
+      "endTime": 1196.975,
+      "title": "Birthday Boy Comin' Through"
+    }
+  ]
+}

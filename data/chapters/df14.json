@@ -1,0 +1,30 @@
+{
+  "version": "1.2.0",
+  "chapters": [
+    {
+      "startTime": 0.0,
+      "endTime": 82.149,
+      "title": "Title"
+    },
+    {
+      "startTime": 82.149,
+      "endTime": 266.02,
+      "title": "Intro"
+    },
+    {
+      "startTime": 266.02,
+      "endTime": 703.957,
+      "title": "Hello, Doctor Bobby"
+    },
+    {
+      "startTime": 703.957,
+      "endTime": 840.326,
+      "title": "Talk Turns to Candy"
+    },
+    {
+      "startTime": 840.326,
+      "endTime": 1073.752,
+      "title": "R Word of the Day"
+    }
+  ]
+}

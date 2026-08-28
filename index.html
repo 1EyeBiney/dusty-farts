@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dusty Farts — an immersive comedy podcast</title>
+<meta name="description" content="Two old friends, one booth, and enough coffee to fuel a small-town power grid. Dusty Farts is an immersive comedy podcast that blends Americana warmth with absurd banter, diner-grade philosophy, and a touch of the surreal.">
+<link rel="stylesheet" href="css/site.css">
+<link rel="alternate" type="application/rss+xml" title="Dusty Farts" href="feed.xml">
+<script>window.SITE_BASE = "";</script>
+</head>
+<body>
+<div class="paper-speckle" aria-hidden="true"></div>
+<div class="skip-links">
+<a href="#main">Skip to main content</a>
+<a href="#df-player">Jump to player</a>
+</div>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-title-link" href="index.html"><p class="site-title">Dusty Farts</p></a>
+    <nav class="site-nav" aria-label="Site">
+      <ul>
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="episodes.html">Episodes</a></li>
+            <li><a href="maple-grove.html">Meet Maple Grove</a></li>
+            <li><a href="jukebox.html">Jingle Jukebox</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="subscribe.html">Subscribe</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<h1>Dusty Farts</h1>
+<p class="tagline">Two old friends, one booth, and enough coffee to fuel a small-town power grid.</p>
+
+<div class="polaroid" data-tilt="1"><img src="images/logo.jpg" alt="Two older men sit in a red vinyl diner booth, coffee mugs and condiment bottles between them, a glowing neon “Polyester Lounge — Bottomless Coffee” sign in the window behind. A handwritten caption below reads “Dusty” with an arrow to the man on the left and “Farts” with an arrow to the man on the right: don’t feed them after noon." loading="lazy"><p class="polaroid-caption" aria-hidden="true">Dusty — Farts</p></div>
+
+<h2>Welcome</h2>
+<button type="button" class="btn" onclick="window.DustyPlayer.play('hope-welcome')">Play Hope’s welcome (1 minute 16 seconds)</button>
+<p>Oh. Hello. You found it. Welcome to the official home of Dusty Farts — and no, that name
+was not my idea. I’m Hope. I narrate the ongoing situation that is John and Fred: two old
+friends, one rescued diner booth, and opinions nobody ordered.</p>
+<p>If you’re new, start with Episode One — this is a story, not a pile of episodes, and
+things in Maple Grove have a way of escalating. The coffee’s burnt, the booth is cracked,
+and the boys are already arguing. Come on in.</p>
+
+<h2>Start listening</h2>
+<p>Dusty Farts is one unfolding story, not a shelf of standalone episodes — start at the
+beginning and let it run.</p>
+<p><a class="btn" href="episodes/df01-pilot.html">Start with Episode 1</a></p>
+<h3>Latest episode</h3>
+<div class="episode-card">
+  <div class="polaroid" data-tilt="5"><img src="images/df17.jpg" alt="A glittering, multicolored New Year’s Eve ball atop a wooden rigging tower wired to a control panel, fireworks and balloons overhead, a banner reading “All Power to the Ball — Happy New Year 2026.”" loading="lazy"><p class="polaroid-caption" aria-hidden="true">Ep. 17 — Maple Grove unplugs itself fridge by fri…</p></div>
+  <p class="date-stamp">January 1, 2026</p>
+  <h3><a href="episodes/df17-all-power-to-the-ball.html">Episode 17: All Power to the Ball</a></h3>
+  <p>Maple Grove unplugs itself fridge by fridge in pursuit of one clean New Year's countdown for the Ball.</p>
+  <div class="episode-actions">
+    <button type="button" class="btn" onclick="window.DustyPlayer.play('df17-all-power-to-the-ball')">Play</button>
+    <a class="btn btn-secondary" href="episodes/df17-all-power-to-the-ball.html">Details</a>
+  </div>
+</div>
+
+<h2>How to listen</h2>
+<p>Keyboard: press H to open the player. Mouse: any play button, or the player bar at the
+bottom of the page. Screen reader: the player is the last region on every page, under the
+heading named “Player” — press your headings key until you hear it, or use the “Jump to
+player” link at the top of the page. And any time: press ? (question mark) to pause the
+audio and see every keyboard shortcut. See the <a href="subscribe.html">Subscribe
+page</a> for a fuller per-browser guide.</p>
+
+<h2>About the making</h2>
+<p>Written, scored, and produced entirely by ear — no screens were consulted in the making
+of this town. <a href="about.html">Read the story behind the show</a>.</p>
+</main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <p>Dusty Farts — an immersive comedy podcast from Maple Grove.</p>
+    <p class="shortcuts-note">Keyboard shortcuts: press ? (question mark) any time — it pauses the audio and lists every key.</p>
+    <p><a href="feed.xml">RSS feed</a> · <a href="https://github.com/1eyebiney">Brian on GitHub</a></p>
+  </div>
+</footer>
+<script src="js/player.js" defer></script>
+<script src="js/site.js" defer></script>
+  <div class="player-region" id="df-player" data-expanded="false" data-playing="false">
+    <div class="player-bar" id="df-player-bar">
+      <span class="player-dot" id="df-player-dot" aria-hidden="true"></span>
+      <span class="player-bar-title" id="df-player-bar-title">Nothing playing yet</span>
+      <div class="player-bar-controls">
+        <button type="button" class="player-icon-btn" data-action="playpause" aria-label="Play" accesskey="p">&#9654;</button>
+        <button type="button" class="player-icon-btn" data-action="expand" aria-label="Expand player">&#9650;</button>
+      </div>
+    </div>
+    <div class="player-panel" id="df-player-panel" role="region" aria-label="Dusty Farts player">
+      <h2 tabindex="-1">Player</h2>
+      <p class="player-now-playing" id="df-player-nowplaying">Nothing playing yet</p>
+      <p class="player-time"><span id="df-player-time">0:00 / 0:00</span></p>
+      <input type="range" class="player-seek" id="df-player-seek" min="0" max="0" value="0" aria-label="Seek">
+      <div class="player-transport">
+        <button type="button" class="player-icon-btn" data-action="playpause" aria-label="Play">&#9654; Play</button>
+        <button type="button" class="player-icon-btn" data-action="back10">&#8592; 10s</button>
+        <button type="button" class="player-icon-btn" data-action="fwd10">10s &#8594;</button>
+        <button type="button" class="player-icon-btn" data-action="back60">&#8592; 1 min</button>
+        <button type="button" class="player-icon-btn" data-action="fwd60">1 min &#8594;</button>
+        <button type="button" class="player-icon-btn" data-action="prevchapter">Previous chapter</button>
+        <button type="button" class="player-icon-btn" data-action="nextchapter">Next chapter</button>
+        <button type="button" class="player-icon-btn" data-action="chapters">Chapters</button>
+        <button type="button" class="player-icon-btn" data-action="prevepisode">Previous episode</button>
+        <button type="button" class="player-icon-btn" data-action="nextepisode">Next episode</button>
+        <button type="button" class="player-icon-btn" data-action="shortcuts">Keyboard shortcuts</button>
+        <button type="button" class="player-icon-btn" data-action="collapse">Collapse</button>
+      </div>
+      <div class="player-settings">
+        <input type="checkbox" id="player-autoadvance" checked>
+        <label for="player-autoadvance">Auto-advance to next episode</label>
+      </div>
+      <div class="player-chapters" id="df-player-chapters" hidden>
+        <h3 tabindex="-1">Chapters</h3>
+        <ul id="df-player-chapters-list"></ul>
+      </div>
+      <div class="player-shortcuts" id="df-player-shortcuts" hidden>
+        <h3 tabindex="-1">Keyboard shortcuts</h3>
+        <dl>
+        <dt>H</dt>
+        <dd>Expand and focus the player (or collapse it, from inside).</dd>
+        <dt>? (question mark)</dt>
+        <dd>Pause, and open or close this shortcuts list.</dd>
+        <dt>Space</dt>
+        <dd>Play or pause.</dd>
+        <dt>Left / Right arrow</dt>
+        <dd>Back or forward 10 seconds.</dd>
+        <dt>Shift + Left / Right</dt>
+        <dd>Back or forward 1 minute.</dd>
+        <dt>Ctrl + Left / Right</dt>
+        <dd>Back or forward 5 minutes.</dd>
+        <dt>Page Up / Page Down</dt>
+        <dd>Previous or next chapter.</dd>
+        <dt>C</dt>
+        <dd>Open the chapter list.</dd>
+        <dt>Up / Down arrow</dt>
+        <dd>Previous or next episode.</dd>
+        <dt>Home</dt>
+        <dd>Restart the current episode.</dd>
+        <dt>Escape</dt>
+        <dd>Collapse the player and return focus to where it was.</dd>
+        </dl>
+        <button type="button" class="btn btn-quiet" data-action="shortcuts">Close</button>
+      </div>
+    </div>
+    <div class="player-live-region" id="df-player-live" aria-live="polite" aria-atomic="true"></div>
+  </div>
+</body>
+</html>
