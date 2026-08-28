@@ -72,6 +72,22 @@ Consequences for you:
 - Player interaction model is borrowed from Brian's accessible-bible.org project:
   pressing H opens an in-page media player; see HANDOFF.md for the full spec.
 
+## Local preview
+
+Never preview with a plain static server (`python -m http.server` and
+similar) - it doesn't support HTTP Range requests, which the `<audio>`
+element needs to seek inside an episode file. Without Range support,
+play/pause and switching episodes look fine but every seek-dependent control
+(10s/1min buttons, chapter jump, the chapter list, the Jukebox) silently
+fails, which cost a long, confusing debugging detour on 2026-08-28 before the
+real cause (the server, not the code) was found. Use `tools/serve.py`
+instead (`python tools/serve.py`, defaults to port 8000) - it adds real
+Range support plus no-cache headers so a reload always reflects what's
+actually on disk. There's also a `.claude/launch.json` entry
+("dusty-farts-preview") wired to the same script for the preview-server
+tool, so a fresh session should be able to start it by name rather than
+reaching for `http.server` again.
+
 ## Style
 
 - The show's visual identity: muted, faded-1970s Americana photorealism, large cream
