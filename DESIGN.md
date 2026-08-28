@@ -97,6 +97,12 @@ learned, never breaks:
    (question mark) any time — it pauses the audio and lists every key." The
    promise Hope makes in audio must always also exist in text.
 
+   **Status (2026-08-28):** removed from the footer at Brian's request — `?`
+   only actually works once a screen reader is in focus mode (a control has
+   focus), so "any time" was inaccurate and read as confusing from Browse
+   Mode. The full shortcut list, including `?`, is still documented on the
+   Subscribe page and inside the player's own "Keyboard shortcuts" panel.
+
 ### 5.1 Home
 
 Exact reading order (DOM order — this is the spec, not a suggestion):
@@ -261,6 +267,19 @@ sees it. The design accepts this and gives each kind of user their own door:
 Hardware media keys and phone lock screens work through the Media Session API
 regardless of focus or mode (see 6.5).
 
+**Status (2026-08-28):** a same-day attempt to move focus into the panel
+automatically whenever a Play button was pressed (redirecting to the seek
+slider, on the theory that a native form control triggers NVDA/JAWS's
+automatic focus-mode switch) was built, then reverted after Brian tested it
+live and found several controls not behaving as expected. On reflection,
+Brian doesn't want focus moved at all: pressing any Play button anywhere on
+the site (catalog, episode page, home, chapters, jukebox) starts or pauses
+that audio and updates the player bar in place, full stop — it never moves
+keyboard focus, whether the click came from a mouse, a keyboard Enter, or a
+screen reader activating the button from Browse Mode. The three doors above
+are otherwise unchanged and untouched; only `H` and the bar's "Expand player"
+button move focus into the panel, exactly as this section already specified.
+
 ### 6.3 Keyboard map
 
 Global, on every page (ignored when focus is in an input/textarea/select or when
@@ -283,10 +302,17 @@ While focus is anywhere inside the player panel (`role="region"`, labeled
 - `Ctrl+Left` / `Ctrl+Right` — back / forward 5 minutes.
 - `Page Up` / `Page Down` — previous / next chapter (announced with title).
 - `C` — reveal and focus the chapter list: a plain list of real buttons (one per
-  chapter, labeled "Chapter 3: Tales of Texting, 7 minutes 0 seconds"), NOT an
-  ARIA listbox — plain buttons read naturally in Browse Mode too. Enter jumps
-  and returns focus to the play button; the list is also always reachable by
-  Tab and by the virtual cursor via its own disclosure button ("Chapters").
+  chapter, labeled "Play chapter 3: Tales of Texting, 7 minutes 0 seconds"), NOT
+  an ARIA listbox — plain buttons read naturally in Browse Mode too. Pressing a
+  chapter's button plays it in place, closes the list, and never moves focus
+  (status, 2026-08-28: focus previously jumped to the panel's play button on
+  activation; per Brian, no player control should ever move focus). Pressing
+  the same chapter's button again while it's playing pauses it instead of
+  restarting it, and its label flips to "Pause chapter 3: ..." while it's the
+  one playing — the same toggle-in-place behavior described in the status
+  note after 6.2, extended here and to the Jingle Jukebox (5.5) so every Play
+  control on the site behaves identically. The list is also always reachable
+  by Tab and by the virtual cursor via its own disclosure button ("Chapters").
 - `Up` / `Down` — previous / next episode (announced; playback starts at the
   episode's resume point if one exists, else the top).
 - `Home` — restart the current episode.
@@ -308,7 +334,10 @@ panel documents the map and the three Browse Mode doors from 6.2.
 - Play: "Playing: Episode 4, Nut Jobs." Pause: "Paused at 12 minutes 30 seconds."
 - Seek (all sizes): "12 minutes 40 seconds of 19 minutes 57 seconds."
 - Chapter jump: "Chapter 3: Tales of Texting."
-- Episode switch: "Episode 5: Blood Brothers. Press Space to play."
+- Episode switch: "Episode 5: Blood Brothers. Press play to start it." (changed
+  2026-08-28 from "Press Space to play" — the old wording was wrong on touch
+  devices with no physical Space key; "press play" names the action instead of
+  a key, and is accurate on desktop, mobile, and any assistive tech.)
 - Episode end: "End of Episode 4. Next up: Episode 5, Blood Brothers." then
   auto-advance and play (the show is continuous; this is the default, with a
   player setting to turn auto-advance off, persisted in localStorage).

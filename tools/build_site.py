@@ -190,7 +190,6 @@ def page_shell(*, root, title, description, active_href, main_html, extra_head="
 <footer class="site-footer">
   <div class="site-footer-inner">
     <p>Dusty Farts — an immersive comedy podcast from Maple Grove.</p>
-    <p class="shortcuts-note">Keyboard shortcuts: press ? (question mark) any time — it pauses the audio and lists every key.</p>
     <p><a href="{root}feed.xml">RSS feed</a> · <a href="https://github.com/1eyebiney">Brian on GitHub</a></p>
   </div>
 </footer>
@@ -253,18 +252,20 @@ beginning and let it run.</p>
   <h3><a href="{root}episodes/{latest['slug']}.html">Episode {latest['number']}: {e(latest['title'])}</a></h3>
   <p>{e(latest['summary'])}</p>
   <div class="episode-actions">
-    <button type="button" class="btn" onclick="window.DustyPlayer.play('{latest['slug']}')">Play</button>
+    <button type="button" class="btn" data-episode-slug="{latest['slug']}" onclick="window.DustyPlayer.togglePlayFor('{latest['slug']}')">Play</button>
     <a class="btn btn-secondary" href="{root}episodes/{latest['slug']}.html">Details</a>
   </div>
 </div>
 
 <h2>How to listen</h2>
-<p>Keyboard: press H to open the player. Mouse: any play button, or the player bar at the
-bottom of the page. Screen reader: the player is the last region on every page, under the
-heading named “Player” — press your headings key until you hear it, or use the “Jump to
-player” link at the top of the page. And any time: press ? (question mark) to pause the
-audio and see every keyboard shortcut. See the <a href="{root}subscribe.html">Subscribe
-page</a> for a fuller per-browser guide.</p>
+<p>Keyboard: press H to open the player.</p>
+<p>Mouse or touch: any Play button, or the player bar at the bottom of the page.</p>
+<p>Screen reader: the player is the last region on every page, under a heading named
+“Player.” On a phone, find it with your rotor or swipe navigation. On a desktop, use the
+“Jump to player” link right after the skip link, then use the audio control buttons
+located in the player region — not the headings key, since that's just normal heading
+navigation for you, not anything special. See the
+<a href="{root}subscribe.html">Subscribe page</a> for the full shortcut list.</p>
 
 <h2>About the making</h2>
 <p>Written, scored, and produced entirely by ear — no screens were consulted in the making
@@ -292,7 +293,7 @@ def build_episodes_catalog(show, episodes, root="", out=None):
     <h2><a href="{root}episodes/{ep['slug']}.html">Episode {ep['number']}: {e(ep['title'])}</a></h2>
     <p>{e(ep['summary'])}</p>
     <div class="episode-actions">
-      <button type="button" class="btn" onclick="window.DustyPlayer.play('{ep['slug']}')">Play</button>
+      <button type="button" class="btn" data-episode-slug="{ep['slug']}" onclick="window.DustyPlayer.togglePlayFor('{ep['slug']}')">Play</button>
       <a class="btn btn-secondary" href="{root}episodes/{ep['slug']}.html">Details</a>
     </div>
   </li>""")
@@ -368,7 +369,7 @@ def build_episode_page(show, episodes, index, root="../"):
 {polaroid(ep['artWeb'], ep['artAlt'], f"Ep. {ep['number']} — {ep['title']}", ep['number'], root)}
 
 <p>
-  <button type="button" class="btn" onclick="window.DustyPlayer.play('{ep['slug']}')">Play in the site player</button>
+  <button type="button" class="btn" data-episode-slug="{ep['slug']}" onclick="window.DustyPlayer.togglePlayFor('{ep['slug']}')">Play in the site player</button>
 </p>
 
 <audio controls preload="none" id="fallback-audio">
@@ -470,8 +471,8 @@ def build_jukebox(show, episodes, root=""):
     <span class="track-number" aria-hidden="true">{i + 1}</span>
     <span class="track-name">{e(label)}</span>
     <span class="date-stamp">{e(fmt_duration_words(t['end'] - t['start']))}</span>
-    <button type="button" class="btn" aria-label="Play {e(label)}"
-      onclick="window.DustyPlayer.playRange('{t['slug']}', {t['start']}, {t['end']}, '{e(label)}')">&#9654;</button>
+    <button type="button" class="btn" aria-label="Play {e(label)}" data-play-key="{t['slug']}:{t['start']}"
+      onclick="window.DustyPlayer.toggleRangeFor('{t['slug']}', {t['start']}, {t['end']}, '{e(label)}')">&#9654;</button>
   </li>""")
 
     main = f"""
@@ -510,6 +511,12 @@ Reaper for the sound design, a screen reader for everything else, ElevenLabs for
 cast's voices, Suno for the music, and ChatGPT as a writing partner. No screens were
 consulted in the making of this town — Brian built it all by ear.</p>
 
+<p>This website was built the same way, one step further removed: Claude — Anthropic's
+AI — built the whole thing from Brian's existing scripts, audio, and notes, working
+through Claude Desktop and Claude Code. That includes every visual on the site: the
+Polaroid photos, the neon masthead, the diner textures, all of it AI-generated at
+Brian's direction, with his wife Barb giving the final visual approval on every image.</p>
+
 <p>He started the show to make his family laugh. It's still mostly for them; the rest
 of us just get to listen in.</p>
 
@@ -536,18 +543,24 @@ def build_subscribe(show, root=""):
 <p class="subtitle">Never miss a refill.</p>
 
 <h2>Listen on this site</h2>
-<p>Press H anywhere to open the player. Press ? (question mark) any time to pause the
-audio and see the full list of keyboard shortcuts.</p>
 <ul>
   <li><strong>Keyboard:</strong> press H from anywhere on the site to expand and focus
-    the player; the same key collapses it again once focus is inside.</li>
-  <li><strong>Mouse:</strong> use any Play button, or the player bar fixed at the
-    bottom of the page — click "Expand player" for the full controls.</li>
-  <li><strong>Screen reader (Browse Mode):</strong> the player is a labeled region at
-    the very end of every page, under a heading named "Player" — press your headings
-    key until you hear it, or use the "Jump to player" link right after the skip link.
-    Once you tab or arrow onto a control, your screen reader will switch to focus mode
-    and the full key map applies.</li>
+    the player; the same key collapses it again once focus is inside. Once inside,
+    press ? (question mark) any time to pause and see the full list of keyboard
+    shortcuts.</li>
+  <li><strong>Mouse or touch:</strong> use any Play button, or the player bar fixed at
+    the bottom of the page — tap or click "Expand player" for the full controls.
+    Pressing a Play button plays or pauses right where you are; it never moves you
+    anywhere else on the page.</li>
+  <li><strong>Screen reader on a phone:</strong> find the player with your rotor or
+    swipe navigation — it's a labeled region named "Player" at the very end of every
+    page.</li>
+  <li><strong>Screen reader on a desktop (Browse Mode):</strong> use the "Jump to
+    player" link right after the skip link, then use the audio control buttons
+    located in the player region — not the headings key, since that's just normal
+    heading navigation for you, not anything special. You can arrow onto any button
+    in the player, or any Play button anywhere on the site, and activate it directly;
+    activating it never moves your position.</li>
 </ul>
 
 <h2>RSS feed</h2>

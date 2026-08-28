@@ -551,7 +551,7 @@ label { font-weight: 600; display: inline-block; margin-bottom: .3em; }
 .player-bar {
   background:
     repeating-linear-gradient(90deg, rgba(0,0,0,0.10) 0 2px, transparent 2px 40px),
-    linear-gradient(0deg, var(--wood-dark), var(--wood-light));
+    linear-gradient(0deg, var(--wood-dark), var(--wood-dark));
   border-top: 3px solid var(--vinyl);
   box-shadow: 0 -2px 10px var(--shadow-warm);
   color: var(--frame);

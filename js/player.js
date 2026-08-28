@@ -19,6 +19,7 @@
   var region, bar, panel, barTitle, nowPlayingEl, timeEl, seekEl;
   var liveRegion, chaptersPanel, chaptersList, shortcutsPanel, dot;
   var current = null; // the episode (or pseudo-episode) currently loaded
+  var activeRangeKey = null; // "slug:start" when a specific chapter/jukebox track was explicitly selected
   var lastFocusBeforeExpand = null;
   var announceTimer = null;
   var saveTimer = null;
@@ -129,6 +130,8 @@
     audio.load();
     updateNowPlaying();
     renderChapters();
+    updateEpisodeButtons();
+    updateRangeButtons();
     if (window.navigator && "mediaSession" in navigator) {
       try {
         navigator.mediaSession.metadata = new MediaMetadata({
@@ -178,25 +181,65 @@
       } else {
         audio.play().catch(function () {});
       }
-      expand(opts && opts.focus === false ? false : true);
+      // Play buttons never move focus - starting audio should never yank a
+      // screen reader user away from wherever they activated it (an episode
+      // listing row, a chapter, a jukebox track). Only the explicit H key and
+      // the bar's "Expand player" button move focus into the panel.
+      expand(false);
       // A single, authoritative announce per action - callers that already
       // know a more specific message (a chapter/jingle title) pass it in via
       // opts.announceText. The native "play" event fires asynchronously right
       // after this and would otherwise re-announce the generic episode title;
       // suppress that one occurrence so the specific message isn't clobbered.
       suppressNextPlayAnnounce = true;
-      announce("Playing: " + (opts && opts.announceText ? opts.announceText : episodeLabel(ep)) + ".");
+      if (opts && opts.announceFull) {
+        announce(opts.announceFull);
+      } else {
+        announce("Playing: " + (opts && opts.announceText ? opts.announceText : episodeLabel(ep)) + ".");
+      }
+      // Jumping straight from one chapter/track to another while already
+      // playing doesn't fire a native "play" event (the element was never
+      // actually paused), so the button labels need updating directly here
+      // too, not only from wireAudioEvents' play/pause listeners.
+      updateEpisodeButtons();
+      updateRangeButtons();
     });
   }
   var suppressNextPlayAnnounce = false;
   window.DustyPlayer = window.DustyPlayer || {};
   window.DustyPlayer.play = playEpisode;
+  window.DustyPlayer.togglePlayFor = function (slug) {
+    fetchEpisodes().then(function () {
+      if (current && current.slug === slug && !audio.paused) {
+        togglePlayPause();
+      } else {
+        activeRangeKey = null;
+        playEpisode(slug, { resume: true });
+      }
+    });
+  };
   window.DustyPlayer.playChapter = function (slug, chapterIndex) {
     fetchEpisodes().then(function () {
       var ep = findEpisode(slug);
       if (!ep || !ep.chapters || !ep.chapters[chapterIndex]) return;
       var ch = ep.chapters[chapterIndex];
-      playEpisode(slug, { startAt: ch.start, announceText: ch.title });
+      activeRangeKey = slug + ":" + ch.start;
+      playEpisode(slug, {
+        startAt: ch.start,
+        announceFull: "Chapter " + (chapterIndex + 1) + ": " + ch.title + "."
+      });
+    });
+  };
+  window.DustyPlayer.toggleChapterFor = function (slug, chapterIndex) {
+    fetchEpisodes().then(function () {
+      var ep = findEpisode(slug);
+      if (!ep || !ep.chapters || !ep.chapters[chapterIndex]) return;
+      var key = slug + ":" + ep.chapters[chapterIndex].start;
+      if (current && current.slug === slug && activeRangeKey === key && !audio.paused) {
+        togglePlayPause();
+      } else {
+        window.DustyPlayer.playChapter(slug, chapterIndex);
+      }
     });
   };
   window.DustyPlayer.playRange = function (slug, startAt, endAt, label) {
@@ -204,7 +247,18 @@
       var ep = findEpisode(slug);
       if (!ep) return;
       pendingRangeEnd = endAt;
+      activeRangeKey = slug + ":" + startAt;
       playEpisode(slug, { startAt: startAt, announceText: label });
+    });
+  };
+  window.DustyPlayer.toggleRangeFor = function (slug, startAt, endAt, label) {
+    fetchEpisodes().then(function () {
+      var key = slug + ":" + startAt;
+      if (current && current.slug === slug && activeRangeKey === key && !audio.paused) {
+        togglePlayPause();
+      } else {
+        window.DustyPlayer.playRange(slug, startAt, endAt, label);
+      }
     });
   };
 
@@ -232,6 +286,7 @@
 
   function restart() {
     if (!current) return;
+    activeRangeKey = null;
     audio.currentTime = 0;
     audio.play().catch(function () {});
   }
@@ -266,7 +321,8 @@
     var target = idx + dir;
     if (target < 0 || target >= episodeOrder.length) return;
     var ep = episodeOrder[target];
-    announce("Episode " + ep.number + ": " + ep.title + ". Press Space to play.");
+    activeRangeKey = null;
+    announce("Episode " + ep.number + ": " + ep.title + ". Press play to start it.");
     loadEpisode(ep, { resume: true, autoplay: false });
   }
 
@@ -335,14 +391,13 @@
       var btn = document.createElement("button");
       btn.type = "button";
       btn.className = "btn btn-quiet";
-      btn.textContent = "Chapter " + (i + 1) + ": " + ch.title + ", " + fmtTimeWords(ch.end - ch.start) + ".";
+      btn.setAttribute("data-play-key", current.slug + ":" + ch.start);
+      btn.textContent = "Play chapter " + (i + 1) + ": " + ch.title + ", " + fmtTimeWords(ch.end - ch.start) + ".";
       btn.addEventListener("click", function () {
-        audio.currentTime = ch.start;
-        audio.play().catch(function () {});
-        announce("Chapter " + (i + 1) + ": " + ch.title + ".");
+        // Toggles in place: never moves focus, and pressing the already-
+        // playing chapter again pauses it instead of restarting it.
+        window.DustyPlayer.toggleChapterFor(current.slug, i);
         closeChapters();
-        var playBtn = panel.querySelector('[data-action="playpause"]');
-        if (playBtn) playBtn.focus();
       });
       li.appendChild(btn);
       chaptersList.appendChild(li);
@@ -421,6 +476,7 @@
       var idx = episodeOrder.findIndex(function (e) { return current && e.slug === current.slug; });
       var next = idx >= 0 ? episodeOrder[idx + 1] : null;
       if (next && settings.autoAdvance !== false) {
+        activeRangeKey = null;
         announce("End of " + episodeLabel(current) + ". Next up: Episode " + next.number + ", " + next.title + ".");
         loadEpisode(next, { autoplay: true });
       } else if (next) {
@@ -436,6 +492,50 @@
     document.querySelectorAll('[data-action="playpause"]').forEach(function (b) {
       b.setAttribute("aria-label", label);
       b.textContent = playing ? "⏸" : "▶"; // pause / play glyphs
+    });
+    updateEpisodeButtons();
+    updateRangeButtons();
+  }
+
+  function updateEpisodeButtons() {
+    var playing = current && !audio.paused;
+    document.querySelectorAll("[data-episode-slug]").forEach(function (b) {
+      if (!b.hasAttribute("data-play-label")) {
+        b.setAttribute("data-play-label", b.textContent);
+      }
+      var base = b.getAttribute("data-play-label");
+      var isThisOne = playing && b.getAttribute("data-episode-slug") === current.slug;
+      b.textContent = isThisOne ? base.replace(/^Play\b/, "Pause") : base;
+    });
+  }
+
+  // Jukebox tracks and chapter-list items: same idea as updateEpisodeButtons,
+  // but keyed on "slug:start" (activeRangeKey) since several buttons can
+  // share one episode slug and only the exact clip/chapter that was picked
+  // should read "Pause". Handles both label styles in the markup: a plain
+  // "Play ..." sentence (chapter buttons) and an icon button with an
+  // aria-label (jukebox buttons).
+  function updateRangeButtons() {
+    var activeKey = current && !audio.paused ? activeRangeKey : null;
+    document.querySelectorAll("[data-play-key]").forEach(function (b) {
+      var isThisOne = activeKey !== null && b.getAttribute("data-play-key") === activeKey;
+      var ariaBase = b.getAttribute("data-play-aria-base");
+      if (ariaBase === null && b.hasAttribute("aria-label")) {
+        ariaBase = b.getAttribute("aria-label");
+        b.setAttribute("data-play-aria-base", ariaBase);
+      }
+      if (ariaBase !== null) {
+        b.setAttribute("aria-label", isThisOne ? ariaBase.replace(/^Play\b/, "Pause") : ariaBase);
+      }
+      if (!b.hasAttribute("data-play-label")) {
+        b.setAttribute("data-play-label", b.textContent);
+      }
+      var baseText = b.getAttribute("data-play-label");
+      if (baseText === "▶" || baseText === "⏸") {
+        b.textContent = isThisOne ? "⏸" : "▶";
+      } else {
+        b.textContent = isThisOne ? baseText.replace(/^Play\b/, "Pause") : baseText;
+      }
     });
   }
 
