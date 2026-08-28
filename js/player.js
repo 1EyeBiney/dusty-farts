@@ -596,6 +596,11 @@
       }
       if (e.ctrlKey) return;
       if (isTypingTarget(e.target) && e.target !== seekEl) return;
+      // The seek slider is a native <input type="range">: Up/Down are its
+      // own built-in step keys (browsers and screen readers both already
+      // handle them), so let them through instead of stealing Up/Down for
+      // episode switching while focus happens to be on this one control.
+      if (e.target === seekEl && (e.key === "ArrowUp" || e.key === "ArrowDown")) return;
       switch (e.key) {
         case " ":
           if (e.target.tagName === "BUTTON") return; // let native activation happen

@@ -314,7 +314,12 @@ While focus is anywhere inside the player panel (`role="region"`, labeled
   control on the site behaves identically. The list is also always reachable
   by Tab and by the virtual cursor via its own disclosure button ("Chapters").
 - `Up` / `Down` — previous / next episode (announced; playback starts at the
-  episode's resume point if one exists, else the top).
+  episode's resume point if one exists, else the top). Exception: while focus
+  is on the seek slider specifically, Up/Down are left alone entirely (status,
+  2026-08-28) — a native `<input type="range">` already treats them as its own
+  step keys, and NVDA was reported stealing that behavior for episode
+  switching before this carve-out. Left/Right still seek 10 seconds there, as
+  everywhere else in the panel.
 - `Home` — restart the current episode.
 - `?` — same as the global `?`: pause and open the shortcuts list.
 - `Escape` — collapse the panel to the bar and return focus to where it was
@@ -322,9 +327,11 @@ While focus is anywhere inside the player panel (`role="region"`, labeled
   first).
 
 Every key action is mirrored by a visible, focusable, labeled button in the
-panel: Play/Pause (`accesskey="p"`), Back 10, Forward 10, Back 1 min,
-Forward 1 min, Previous chapter, Next chapter, Chapters, Previous episode,
-Next episode, Collapse. A `<input type="range">` progress slider (labeled
+panel, in this order (status, 2026-08-28 — reordered at Brian's request for a
+more logical screen-reader navigation sequence; wording and set unchanged):
+Back 1 min, Back 10, Play/Pause (`accesskey="p"`), Forward 10, Forward 1 min,
+Previous chapter, Next chapter, Chapters, Previous episode, Next episode,
+Collapse. A `<input type="range">` progress slider (labeled
 "Seek") is keyboard-operable and announces its value as time. Position shown as
 text: "12:30 / 19:57". A visible "Keyboard shortcuts" disclosure inside the
 panel documents the map and the three Browse Mode doors from 6.2.
