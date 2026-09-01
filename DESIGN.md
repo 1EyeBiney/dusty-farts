@@ -349,6 +349,42 @@ panel documents the map and the three Browse Mode doors from 6.2.
   auto-advance and play (the show is continuous; this is the default, with a
   player setting to turn auto-advance off, persisted in localStorage).
 
+### 6.4a Starting playback (iOS constraint — do not undo this)
+
+iOS Safari only permits `audio.play()` while the user's tap is still being
+handled. Two rules follow, and breaking either makes the site silent on iPhone
+while desktop Chrome keeps working (Chrome allows a later `play()` based on
+prior engagement, which is why this hid for so long):
+
+1. **Never defer `play()` behind an event or promise.** Until 2026-08-29
+   `loadEpisode()` waited for `loadedmetadata` before playing. With
+   `preload="none"` the element's `readyState` was always 0 at that point, so
+   *every* play was deferred and iOS blocked *every* one — and the empty
+   `.catch()` on each call meant it failed with no sound and no message. Play
+   now starts synchronously; the start offset is applied afterwards (seek
+   first, then play, whenever metadata is already available).
+2. **Keep the path from tap to `play()` synchronous.** Public entry points use
+   `withEpisodes()`, which runs its callback immediately when episode data is
+   already cached (the normal case — `init()` fetches it on page load) and only
+   falls back to a promise if a tap beats that fetch. A plain
+   `fetchEpisodes().then()` on the tap path ends the gesture window even when
+   the promise is already resolved.
+
+Supporting these: `preload="metadata"` (with `"none"`, iOS would not load
+metadata until a gesture-initiated play, while the play waited on metadata — a
+deadlock); a silent-data-URI play/pause primed on the first interaction, so
+playback the site starts later on its own (auto-advance, end of a jukebox
+range, Media Session buttons) is still permitted; and `handlePlayError()`,
+which announces a blocked play instead of swallowing it. `AbortError` stays
+silent — it is the normal result of a new `load()` interrupting a play in
+flight when switching episodes or jukebox tracks.
+
+Related: `current` (what the bar is labelled with) and `loadedSlug` (what the
+audio element actually has loaded) are separate. `init()` restores `current`
+from localStorage without loading audio, so the "already playing this one"
+check must consult `loadedSlug`; otherwise the first click after a reload calls
+`play()` on an element with no source and silently does nothing.
+
 ### 6.5 State and media integration
 
 - Resume: per-episode positions and the current episode id in localStorage;

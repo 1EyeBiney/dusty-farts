@@ -18,7 +18,12 @@
   var audio = null;
   var region, bar, panel, barTitle, nowPlayingEl, timeEl, seekEl;
   var liveRegion, chaptersPanel, chaptersList, shortcutsPanel, dot;
-  var current = null; // the episode (or pseudo-episode) currently loaded
+  var current = null; // the episode (or pseudo-episode) the UI is showing
+  // Which slug is actually loaded into the audio element. `current` alone is
+  // not enough: init() restores it from localStorage to label the bar, without
+  // loading any audio, so a play() based on `current` would run against an
+  // element that has no source. Only loadEpisode() sets this.
+  var loadedSlug = null;
   var activeRangeKey = null; // "slug:start" when a specific chapter/jukebox track was explicitly selected
   var lastFocusBeforeExpand = null;
   var announceTimer = null;
@@ -100,6 +105,87 @@
     });
   }
 
+  /*
+   * Run `fn` with episode data available, SYNCHRONOUSLY whenever we already
+   * have it. This matters on iOS: Safari only allows audio.play() while the
+   * user's tap is still being handled, and any .then() hop - even an already
+   * resolved promise - ends that window. init() fetches episodes.json on page
+   * load, so by the time anyone taps Play the data is virtually always cached
+   * and this stays inside the gesture. The async path is only for the rare
+   * tap that beats the initial fetch.
+   */
+  function withEpisodes(fn) {
+    if (episodesData) { fn(); return; }
+    fetchEpisodes().then(fn);
+  }
+
+  /*
+   * Every play() rejection used to be swallowed by an empty catch, so a
+   * blocked play produced no sound, no message, and no visible change. Say
+   * something instead. AbortError is routine - it fires whenever a new
+   * load()/src assignment interrupts a play already in flight (switching
+   * episodes, jumping between jukebox tracks) - so it stays silent.
+   */
+  function handlePlayError(err) {
+    if (err && (err.name === "AbortError" || err.name === "NotSupportedError")) return;
+    updatePlayButtons(false);
+    announce("Playback did not start. Press Play to try again.");
+  }
+
+  function startPlayback() {
+    var p = audio.play();
+    if (p && p.catch) p.catch(handlePlayError);
+    return p;
+  }
+
+  /*
+   * iOS ties "this element may play" to the element having been started by a
+   * real user gesture at least once. Playback we start later from a timer or
+   * event - auto-advance at the end of an episode, the end of a jukebox
+   * range, a Media Session control - is not in a gesture, so prime the
+   * element on the very first interaction with the page using a short silent
+   * clip. No network: the clip is a data URI.
+   */
+  var audioUnlocked = false;
+  var SILENT_WAV = "data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=";
+  function unlockAudio() {
+    if (audioUnlocked || !audio) return;
+    audioUnlocked = true;
+    // Never disturb a real source that is already loaded or playing.
+    if (audio.currentSrc || audio.src) return;
+    try {
+      audio.src = SILENT_WAV;
+      var p = audio.play();
+      if (p && p.then) {
+        p.then(function () {
+          // A real episode may have loaded in between (the same gesture that
+          // primed us is often the tap that starts one). Only touch the
+          // element if the silent clip is still what's loaded - pausing or
+          // clearing here otherwise would kill the episode just started.
+          if (audio.src !== SILENT_WAV) return;
+          audio.pause();
+        }).catch(function () { /* priming is best-effort */ });
+      }
+    } catch (e) { /* priming is best-effort */ }
+    // No cleanup of the src: loadEpisode always assigns a real source before
+    // playing, so the leftover data URI is harmless and clearing it risks
+    // racing that assignment.
+  }
+
+  /*
+   * Prime on the first real interaction, whatever form it takes - a tap, a
+   * key, or a pointer. `capture: true` so this runs before the click handler
+   * that may be about to start a real episode, and `once: true` so it costs
+   * nothing afterwards. Touch/pointer/keyboard are all covered because Brian
+   * uses the keyboard and phone users tap.
+   */
+  function wireAudioUnlock() {
+    var opts = { once: true, capture: true, passive: true };
+    ["pointerdown", "touchstart", "keydown"].forEach(function (evt) {
+      document.addEventListener(evt, unlockAudio, opts);
+    });
+  }
+
   function hopeWelcomeEpisode() {
     if (!episodesData || !episodesData.show.hopeWelcome) return null;
     return {
@@ -126,6 +212,7 @@
   function loadEpisode(ep, opts) {
     opts = opts || {};
     current = ep;
+    loadedSlug = ep.slug;
     audio.src = BASE + ep.webFile;
     audio.load();
     updateNowPlaying();
@@ -149,14 +236,33 @@
       var s = loadState();
       if (s.episodeSlug === ep.slug && typeof s.position === "number") startAt = s.position;
     }
-    var applyStart = function () {
+
+    /*
+     * Order matters here, and it is the whole reason mobile was silent.
+     * play() MUST be called while the user's tap is still being handled -
+     * iOS Safari rejects it otherwise - so we never defer it behind
+     * loadedmetadata any more. With preload="none" readyState was always 0
+     * at this point, so the old code deferred every single play and iOS
+     * blocked every single one, silently.
+     *
+     * When metadata is already there (a re-play, or preload="metadata" has
+     * done its job) we seek first and then play, which is seamless. When it
+     * isn't, we play immediately to keep the gesture, and apply the seek as
+     * soon as metadata lands - costing at most a brief moment of the opening
+     * before it jumps to the requested point.
+     */
+    var wantsPlay = opts.autoplay !== false;
+    if (audio.readyState >= 1) {
       if (startAt > 0) audio.currentTime = startAt;
-      if (opts.autoplay !== false) {
-        audio.play().catch(function () { /* autoplay blocked; user can press play */ });
+      if (wantsPlay) startPlayback();
+    } else {
+      if (wantsPlay) startPlayback();
+      if (startAt > 0) {
+        audio.addEventListener("loadedmetadata", function () {
+          audio.currentTime = startAt;
+        }, { once: true });
       }
-    };
-    if (audio.readyState >= 1) applyStart();
-    else audio.addEventListener("loadedmetadata", applyStart, { once: true });
+    }
 
     saveState({ episodeSlug: ep.slug, position: startAt });
   }
@@ -169,17 +275,17 @@
   }
 
   function playEpisode(slug, opts) {
-    fetchEpisodes().then(function () {
+    withEpisodes(function () {
       var ep = findEpisode(slug);
       if (!ep) return;
-      var isSame = current && current.slug === ep.slug;
+      var isSame = current && current.slug === ep.slug && loadedSlug === ep.slug;
       if (!isSame) {
         loadEpisode(ep, opts);
       } else if (opts && opts.startAt !== undefined) {
         audio.currentTime = opts.startAt;
-        audio.play().catch(function () {});
+        startPlayback();
       } else {
-        audio.play().catch(function () {});
+        startPlayback();
       }
       // Play buttons never move focus - starting audio should never yank a
       // screen reader user away from wherever they activated it (an episode
@@ -209,7 +315,7 @@
   window.DustyPlayer = window.DustyPlayer || {};
   window.DustyPlayer.play = playEpisode;
   window.DustyPlayer.togglePlayFor = function (slug) {
-    fetchEpisodes().then(function () {
+    withEpisodes(function () {
       if (current && current.slug === slug && !audio.paused) {
         togglePlayPause();
       } else {
@@ -219,7 +325,7 @@
     });
   };
   window.DustyPlayer.playChapter = function (slug, chapterIndex) {
-    fetchEpisodes().then(function () {
+    withEpisodes(function () {
       var ep = findEpisode(slug);
       if (!ep || !ep.chapters || !ep.chapters[chapterIndex]) return;
       var ch = ep.chapters[chapterIndex];
@@ -231,7 +337,7 @@
     });
   };
   window.DustyPlayer.toggleChapterFor = function (slug, chapterIndex) {
-    fetchEpisodes().then(function () {
+    withEpisodes(function () {
       var ep = findEpisode(slug);
       if (!ep || !ep.chapters || !ep.chapters[chapterIndex]) return;
       var key = slug + ":" + ep.chapters[chapterIndex].start;
@@ -243,7 +349,7 @@
     });
   };
   window.DustyPlayer.playRange = function (slug, startAt, endAt, label) {
-    fetchEpisodes().then(function () {
+    withEpisodes(function () {
       var ep = findEpisode(slug);
       if (!ep) return;
       pendingRangeEnd = endAt;
@@ -252,7 +358,7 @@
     });
   };
   window.DustyPlayer.toggleRangeFor = function (slug, startAt, endAt, label) {
-    fetchEpisodes().then(function () {
+    withEpisodes(function () {
       var key = slug + ":" + startAt;
       if (current && current.slug === slug && activeRangeKey === key && !audio.paused) {
         togglePlayPause();
@@ -271,7 +377,7 @@
       return;
     }
     if (audio.paused) {
-      audio.play().catch(function () {});
+      startPlayback();
     } else {
       audio.pause();
     }
@@ -288,7 +394,7 @@
     if (!current) return;
     activeRangeKey = null;
     audio.currentTime = 0;
-    audio.play().catch(function () {});
+    startPlayback();
   }
 
   function currentChapterIndex() {
@@ -635,7 +741,7 @@
   function wireMediaSession() {
     if (!("mediaSession" in navigator)) return;
     try {
-      navigator.mediaSession.setActionHandler("play", function () { audio.play().catch(function () {}); });
+      navigator.mediaSession.setActionHandler("play", function () { startPlayback(); });
       navigator.mediaSession.setActionHandler("pause", function () { audio.pause(); });
       navigator.mediaSession.setActionHandler("seekbackward", function () { seekBy(-10); });
       navigator.mediaSession.setActionHandler("seekforward", function () { seekBy(10); });
@@ -665,7 +771,12 @@
     dot = $("df-player-dot");
 
     audio = new Audio();
-    audio.preload = "none";
+    // "none" prevented metadata from ever loading on iOS until a
+    // gesture-initiated play, while the play itself waited on loadedmetadata.
+    // "metadata" breaks that deadlock and makes readyState >= 1 the common
+    // case, so seeks land before playback starts.
+    audio.preload = "metadata";
+    audio.setAttribute("playsinline", "");
 
     wireButtons();
     wireAudioEvents();
@@ -675,6 +786,7 @@
     wirePanelKeys();
     wireMediaSession();
     wireVisibility();
+    wireAudioUnlock();
 
     fetchEpisodes().then(function () {
       var s = loadState();
